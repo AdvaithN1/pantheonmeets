@@ -1,6 +1,6 @@
 # Pantheon Meets
 
-To run the program: visit https://meets.pantheonlabs.org
+The finished and deployed version is available at our website: https://meets.pantheonlabs.org
 
 /client includes all assets and html/css/js files
 
