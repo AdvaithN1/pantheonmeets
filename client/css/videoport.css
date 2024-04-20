@@ -1,0 +1,232 @@
+body{
+    background:#0F2027;
+    background:-webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027) ;
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+}
+
+#output_canvas{
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    position: absolute;
+}
+
+/* 
+#join-btn{
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-top:-50px;
+    margin-left:-100px;
+    font-size:18px;
+    padding:20px 40px;
+} */
+
+/* FONTS */
+
+@font-face {
+    font-family: "URW Jay Gothic W01 Light";
+    src: url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.eot");
+    src: url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.svg#URW Jay Gothic W01 Light")format("svg");
+  }
+  
+  @font-face {
+    font-family: "Monte Stella Trial Light";
+    src: url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.eot");
+    src: url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.svg#Monte Stella Trial Light")format("svg");
+  }
+  
+  @font-face {
+    font-family: "FSP DEMO - Bebas Neue Pro Light";
+    src: url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.eot");
+    src: url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.svg#FSP DEMO - Bebas Neue Pro Light")format("svg");
+  }
+  @font-face {
+    font-family: "DINOT-Regular";
+    src: url("https://db.onlinewebfonts.com/t/1c587cd97662ab09cb8ba96867f212e7.eot");
+    src: url("https://db.onlinewebfonts.com/t/1c587cd97662ab09cb8ba96867f212e7.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/1c587cd97662ab09cb8ba96867f212e7.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/1c587cd97662ab09cb8ba96867f212e7.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/1c587cd97662ab09cb8ba96867f212e7.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/1c587cd97662ab09cb8ba96867f212e7.svg#DINOT-Regular")format("svg");
+}
+@font-face {
+    font-family: "DINOT-Bold";
+    src: url("https://db.onlinewebfonts.com/t/feab4f015f183ad38338781e0369490d.eot");
+    src: url("https://db.onlinewebfonts.com/t/feab4f015f183ad38338781e0369490d.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/feab4f015f183ad38338781e0369490d.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/feab4f015f183ad38338781e0369490d.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/feab4f015f183ad38338781e0369490d.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/feab4f015f183ad38338781e0369490d.svg#DINOT-Bold")format("svg");
+}
+
+#video-streams{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    height: 90vh;
+    width: 1400px;
+    margin: 0 auto;
+}
+
+.video-container{
+    position: relative;
+    max-height: 100%;
+    border: 7px solid cadetblue;
+    border-radius: 5px;
+    background-color: #203A49;
+    width: calc(100% - 25px); /* Adjust video area width */
+    float: left; /* Make video area float left */
+}
+
+.video-player{
+    margin-top: 0px;
+    height: calc(100% - 24px);
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+}
+
+.white {
+    background-color: white;
+    
+}
+
+button{
+    border: none;
+    background-color: cadetblue;
+    color:#fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 2px;
+    cursor: pointer;
+}
+
+#stream-controls{
+    display: none;
+    justify-content: center;
+    margin-top:0.5em;
+    position: absolute;
+    z-index: 100;
+}
+
+@media screen and (max-width:1400px){
+    #video-streams{
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        width: 95%;
+    }
+}
+
+#stream-wrapper {
+    width: 80%; /* Adjust video area width */
+    float: left; /* Make video area float left */
+}
+
+
+
+#captions-column {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 17%; /* Captions Width*/
+    height: 93%;
+    
+    
+}
+#captionTitle {
+    font-family: "DINOT-Bold";
+    font-size: 40px;
+    color: #fff;
+}
+#language {
+    z-index: 500;
+    position: relative;
+    width: 110px;
+    left: 180px;
+    top: -35px;
+  }
+.capContainer2 {
+    overflow-y: scroll;
+    max-height: 93%;
+    display: flex;
+    flex-direction: column-reverse;
+}
+#captions {
+    font-family: "DINOT-Regular";
+    color:#fff;
+
+    /*overflow: scroll;*/
+    height: 100%;
+    
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+    
+::-webkit-scrollbar-track {
+    border: 0.5px solid #88fff9;
+    border-radius: 0px;
+}
+    
+::-webkit-scrollbar-thumb {
+    background: #88fff9;  
+    border-radius: 0px;
+}
+    
+::-webkit-scrollbar-thumb:hover {
+    background: #88fff9;  
+}
+
+#login-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+#login-form input {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+#join-meeting-btn {
+    background-color: cadetblue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.user-uid {
+    position: relative;  
+    z-index: 10;
+    color: white;
+    font-size: 14px;
+    background: linear-gradient(to right, #0f151d, #0f151d00);
+    padding: 4px 8px;
+    z-index: 0;
+}
+
+#output-canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}

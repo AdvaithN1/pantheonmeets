@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<title>PantheonMEETS</title>
+	<link rel="canonical" href="https://astrafi.com/">
+	<a href=""></a>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width">
+	<link rel="apple-touch-icon" sizes="180x180" href="https://astrafi.com/static/images/favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://astrafi.com/static/images/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://astrafi.com/static/images/favicons/favicon-16x16.png">
+	<link rel="manifest" href="https://astrafi.com/static/images/favicons/site.webmanifest">
+	<link rel="mask-icon" href="https://astrafi.com/static/images/favicons/safari-pinned-tab.svg" color="#492847">
+	<meta name="msapplication-TileColor" content="#492847">
+	<meta name="theme-color" content="#ffffff">
+	<meta name="next-head-count" content="17">
+	<link rel="preload" href="./assets/b5766bd91bebd01e.css" as="style">
+	<link rel="stylesheet" href="./assets/b5766bd91bebd01e.css" data-n-g="">
+	<link rel="preload" href="./assets/0183262202169550.css" as="style">
+	<link rel="stylesheet" href="./assets/0183262202169550.css" data-n-p="">
+	<link rel="preload" href="./assets/6cf4a7e7ce50e508.css" as="style">
+	<link rel="stylesheet" href="./assets/6cf4a7e7ce50e508.css"><noscript
+		data-n-css=""></noscript>
+
+
+	<style>
+        #parText {
+            width: 400px;
+        }
+        tyles-module-primary-33c456 {
+			color: #4672ff
+		}
+
+		.termly-styles-module-secondary-5c5b6d {
+			color: #00c999
+		}
+
+		.termly-styles-module-dangerous-6df7c1 {
+			color: #ed7474
+		}
+
+		.termly-styles-module-root-1df63b {
+			font-size: .875em;
+			font-family: Roboto, "Open Sans", Helvetica, Arial
+		}
+
+		.termly-styles-module-root-1df63b.termly-styles-module-disabled-52fbba {
+			opacity: .5;
+			cursor: not-allowed
+		}
+
+		.termly-styles-module-root-1df63b:not(.termly-styles-module-disabled-52fbba) {
+			cursor: pointer
+		}
+
+		.termly-styles-module-outline-67acb4 {
+			border-width: 1px;
+			border-radius: 3px;
+			border-style: solid;
+			background: #fff;
+			padding: .625em 2em
+		}
+
+		.termly-styles-module-outline-67acb4.termly-styles-module-primary-33c456 {
+			border-color: #4672ff
+		}
+
+		.termly-styles-module-outline-67acb4.termly-styles-module-secondary-5c5b6d {
+			border-color: #00c999
+		}
+
+		.termly-styles-module-outline-67acb4.termly-styles-module-dangerous-6df7c1 {
+			border-color: #ed7474
+		}
+
+		.termly-styles-module-solid-b8cec0 {
+			border-width: 1px;
+			border-radius: 3px;
+			border-style: solid;
+			color: #fff;
+			padding: .625em 2em
+		}
+
+		.termly-styles-module-solid-b8cec0.termly-styles-module-primary-33c456 {
+			border-color: #4672ff;
+			background: #4672ff
+		}
+
+		.termly-styles-module-solid-b8cec0.termly-styles-module-secondary-5c5b6d {
+			border-color: #00c999;
+			background: #00c999
+		}
+
+		.termly-styles-module-solid-b8cec0.termly-styles-module-dangerous-6df7c1 {
+			border-color: #ed7474;
+			background: #ed7474
+		}
+
+		.termly-styles-module-text-0d2428 {
+			border: none;
+			background: rgba(0, 0, 0, 0);
+			padding: 0
+		}
+
+		.termly-styles-module-root-652774 {
+			display: flex;
+			flex-direction: row;
+			font-size: 1rem;
+			font-family: Roboto, "Open Sans", Helvetica, Arial;
+			background: #e6e7e8;
+			height: 100%;
+			align-items: center;
+			justify-content: center
+		}
+
+		.termly-styles-module-shadowBox-c32645 {
+			display: inline-flex;
+			flex-direction: column;
+			text-align: center;
+			background: #fff;
+			border: 1px solid rgba(255, 255, 255, .3);
+			box-shadow: 0px 0px 15px rgba(0, 0, 0, .15);
+			border-radius: 5px;
+			padding: 2em
+		}
+
+		.termly-styles-module-title-82a29a {
+			font-size: 1.25em;
+			font-weight: 500;
+			margin-bottom: .75em;
+			line-height: 1
+		}
+
+		.termly-styles-module-content-a10582 {
+			font-size: .75em;
+			line-height: 1.75
+		}
+
+		.termly-styles-module-buttons-9f54ab {
+			display: flex;
+			justify-content: center;
+			margin-top: 1.25em
+		}
+
+		.termly-styles-module-buttons-9f54ab>* {
+			margin: 0 .5em
+		}
+
+		.termly-styles-module-root-e11974 {
+			display: flex;
+			font-family: Roboto, "Open Sans", Helvetica, Arial;
+			gap: 8px
+		}
+
+		.termly-styles-module-root-e11974.termly-styles-module-disabled-ce19c7 {
+			cursor: not-allowed;
+			opacity: .5
+		}
+
+		.termly-styles-module-root-e11974:not(.termly-styles-module-disabled-ce19c7) {
+			cursor: pointer
+		}
+
+		.termly-styles-module-checkbox-c45fb9 {
+			width: 18px;
+			height: 18px;
+			border: solid 1px #e1e3e6;
+			border-radius: 3px;
+			background-image: linear-gradient(to top, #f2f4fb, #feffff);
+			display: flex;
+			flex: 0 0 18px
+		}
+
+		.termly-styles-module-checkbox-c45fb9.termly-styles-module-checked-239a89 {
+			background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI5IiB2aWV3Qm94PSIwIDAgMTIgOSI+CiAgICA8ZGVmcz4KICAgICAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSIwJSIgeTE9IjUwJSIgeTI9IjUwJSI+CiAgICAgICAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwMEE2REEiLz4KICAgICAgICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNkY4OUVEIi8+CiAgICAgICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDwvZGVmcz4KICAgIDxwYXRoIGZpbGw9InVybCgjYSkiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTYgMTl2LTNINHY1aDEwdi0ySDZ6IiB0cmFuc2Zvcm09InJvdGF0ZSgtNDUgLTEwLjYwNyAxNC42MjEpIi8+Cjwvc3ZnPgo=), linear-gradient(to top, #f2f4fb, #feffff);
+			background-repeat: no-repeat;
+			background-position: center
+		}
+
+		.termly-styles-module-input-a71c43 {
+			display: none
+		}
+
+		.termly-styles-module-label-9bfc8a {
+			display: flex;
+			align-items: center
+		}
+
+		.termly-styles-module-root-e1e837 {
+			border-radius: 3px;
+			border: 1px solid #ced4da;
+			color: #363840;
+			font-size: inherit;
+			line-height: 1.429;
+			padding: .714em 1.0714em
+		}
+
+		.termly-styles-module-root-5358ff {
+			height: 100%
+		}
+
+		.termly-styles-module-spinner-f9b18a {
+			animation: termly-styles-module-rotate-2b52fb 2s linear infinite;
+			z-index: 2;
+			position: relative;
+			width: 100%;
+			height: 100%;
+			display: flex
+		}
+
+		.termly-styles-module-spinner-f9b18a .termly-styles-module-path-fbf5d6 {
+			stroke: var(--loading-circle-color, hsl(210, 70%, 75%));
+			stroke-linecap: round;
+			animation: termly-styles-module-dash-3b98ac 1.5s ease-in-out infinite
+		}
+
+		@keyframes termly-styles-module-rotate-2b52fb {
+			100% {
+				transform: rotate(360deg)
+			}
+		}
+
+		@keyframes termly-styles-module-dash-3b98ac {
+			0% {
+				stroke-dasharray: 1, 150;
+				stroke-dashoffset: 0
+			}
+
+			50% {
+				stroke-dasharray: 90, 150;
+				stroke-dashoffset: -35
+			}
+
+			100% {
+				stroke-dasharray: 90, 150;
+				stroke-dashoffset: -124
+			}
+		}
+
+		.termly-styles-module-root-3d61c0 {
+			display: flex;
+			font-family: Roboto, "Open Sans", Helvetica, Arial
+		}
+
+		.termly-styles-module-root-3d61c0.termly-styles-module-disabled-96ea1d {
+			cursor: not-allowed
+		}
+
+		.termly-styles-module-root-3d61c0:not(.termly-styles-module-disabled-96ea1d) {
+			cursor: pointer
+		}
+
+		.termly-styles-module-input-4d9e6c {
+			display: none
+		}
+
+		.termly-styles-module-radio-32f70d {
+			width: 15px;
+			height: 15px;
+			border-radius: 9px;
+			border: 1px solid #ced0da;
+			background-image: linear-gradient(to top, #f2f4fb, #feffff);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 5px
+		}
+
+		.termly-styles-module-radio-32f70d.termly-styles-module-checked-a79bd8 .termly-styles-module-radio__inner-7cb14e {
+			width: 7px;
+			height: 7px;
+			border-radius: 4px;
+			background-color: #239eeb
+		}
+
+		.termly-styles-module-radio-32f70d.termly-styles-module-disabled-96ea1d {
+			opacity: .5
+		}
+
+		.termly-styles-root-2c05d3 {
+			--previewer-background-color: #f5f6fa
+		}
+
+		.termly-styles-previewBox-ce1352 {
+			background: #f5f6fa;
+			border: 1px solid #e8e8e8;
+			border-radius: .25rem;
+			box-shadow: 0px 2px 4px rgba(226, 226, 226, .5);
+			margin-bottom: 1rem
+		}
+
+		.termly-styles-button-caaa11 {
+			text-transform: uppercase;
+			font-weight: 500;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			line-height: 1.25rem
+		}
+
+		.termly-styles-previewButton__icon-73cfb5 {
+			height: 1.25rem;
+			width: 1.25rem;
+			margin-right: .25rem
+		}
+
+		.termly-styles-root-f04f6d {
+			background-color: #fff;
+			border: 1px solid #eee;
+			font-size: .375rem;
+			margin: 1rem;
+			max-height: 11.625rem;
+			overflow: hidden;
+			position: relative
+		}
+
+		.termly-styles-document-5d62fb {
+			padding: 1rem;
+			background: var(--background)
+		}
+
+		.termly-styles-document-5d62fb::after {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			height: 10em;
+			background: linear-gradient(to top, var(--previewer-background-color) 10%, transparent);
+			opacity: 1;
+			transition: opacity .2s ease
+		}
+
+		.termly-styles-title-399c7e {
+			color: var(--title-color);
+			font-family: var(--title-font-family);
+			font-weight: 700;
+			text-transform: uppercase
+		}
+
+		.termly-styles-lastUpdated-43cc72 {
+			margin-top: 1em;
+			font-size: smaller
+		}
+
+		.termly-styles-body-1b1bcc {
+			color: var(--body-color);
+			font-family: var(--body-font-family);
+			margin-top: 3em;
+			line-height: 1.5
+		}
+
+		.termly-styles-root-8ffd4a {
+			width: 100%;
+			background: #fff
+		}
+
+		@keyframes termly-styles-wave-b89649 {
+			0% {
+				background-position: -41rem 0
+			}
+
+			100% {
+				background-position: 41rem 0
+			}
+		}
+
+		.termly-styles-paragraph-e33353,
+		.termly-styles-heading-e8b13b {
+			height: .9375rem;
+			border-radius: .1875rem;
+			background: linear-gradient(to right, rgba(226, 226, 226, 0.5) 0, rgba(226, 226, 226, 0.2) 35%, rgba(226, 226, 226, 0.5) 70%);
+			animation: termly-styles-wave-b89649 2s linear infinite forwards
+		}
+
+		.termly-styles-heading-e8b13b {
+			width: 35%;
+			margin: 1.875rem 0 .625rem
+		}
+
+		.termly-styles-paragraph-e33353 {
+			width: 100%;
+			margin: .3125rem 0
+		}
+
+		.termly-styles-root-bd195a {
+			position: fixed;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background: rgba(58, 67, 105, .6);
+			z-index: 10000;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 4rem 0
+		}
+
+		@media only screen and (max-width: 36rem) {
+			.termly-styles-root-bd195a {
+				padding: 0
+			}
+		}
+
+		.termly-styles-modal-6f3b75 {
+			width: 80%;
+			height: 100%;
+			background: #fff;
+			margin: 2rem auto;
+			display: flex;
+			flex-direction: column;
+			max-width: 75rem
+		}
+
+		@media only screen and (max-width: 48rem) {
+			.termly-styles-modal-6f3b75 {
+				width: 95%
+			}
+		}
+
+		@media only screen and (max-width: 36rem) {
+			.termly-styles-modal-6f3b75 {
+				width: 100%
+			}
+		}
+
+		.termly-styles-header-95b0d2 {
+			padding: 1rem;
+			display: flex;
+			justify-content: flex-end;
+			border-bottom: 1px solid #ddd
+		}
+
+		.termly-styles-body-97cc2f {
+			flex: 1
+		}
+
+		.termly-styles-content-9ce1cd {
+			overflow-y: scroll;
+			padding: 1.75rem 4.0625rem 6.25rem
+		}
+
+		.termly-styles-content-9ce1cd>*:last-child {
+			padding-bottom: 1.875rem
+		}
+
+		@media only screen and (max-width: 48rem) {
+			.termly-styles-content-9ce1cd {
+				padding: 2rem
+			}
+		}
+	</style>
+	<style id="_goober">
+		@keyframes go2264125279 {
+			from {
+				transform: scale(0) rotate(45deg);
+				opacity: 0;
+			}
+
+			to {
+				transform: scale(1) rotate(45deg);
+				opacity: 1;
+			}
+		}
+
+		@keyframes go3020080000 {
+			from {
+				transform: scale(0);
+				opacity: 0;
+			}
+
+			to {
+				transform: scale(1);
+				opacity: 1;
+			}
+		}
+
+		@keyframes go463499852 {
+			from {
+				transform: scale(0) rotate(90deg);
+				opacity: 0;
+			}
+
+			to {
+				transform: scale(1) rotate(90deg);
+				opacity: 1;
+			}
+		}
+
+		@keyframes go1268368563 {
+			from {
+				transform: rotate(0deg);
+			}
+
+			to {
+				transform: rotate(360deg);
+			}
+		}
+
+		@keyframes go1310225428 {
+			from {
+				transform: scale(0) rotate(45deg);
+				opacity: 0;
+			}
+
+			to {
+				transform: scale(1) rotate(45deg);
+				opacity: 1;
+			}
+		}
+
+		@keyframes go651618207 {
+			0% {
+				height: 0;
+				width: 0;
+				opacity: 0;
+			}
+
+			40% {
+				height: 0;
+				width: 6px;
+				opacity: 1;
+			}
+
+			100% {
+				opacity: 1;
+				height: 10px;
+			}
+		}
+
+		@keyframes go901347462 {
+			from {
+				transform: scale(0.6);
+				opacity: 0.4;
+			}
+
+			to {
+				transform: scale(1);
+				opacity: 1;
+			}
+		}
+
+		.go4109123758 {
+			z-index: 9999;
+		}
+
+		.go4109123758>* {
+			pointer-events: auto;
+		}
+
+		@keyframes custom-toast-entry {
+			from {
+				opacity: 0;
+				transform: translateY(100%)
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0)
+			}
+		}
+
+		.termly-styles-text-6d5da6 {
+			white-space: nowrap
+		}
+
+		.termly-styles-button-7be77c {
+			color: #00c999 !important;
+			font-size: 1rem !important;
+			font-weight: 700;
+			text-transform: uppercase;
+			margin-left: 1rem
+		}
+
+		.termly-styles-icon-dc4149 {
+			margin-left: .333em
+		}
+
+		.termly-styles-root-1e411e {
+			border-top: 1px solid var(--common-footer-top-border-color, #ced4da);
+			padding-top: .625rem;
+			display: flex;
+			justify-content: var(--common-footer-justify-content, normal)
+		}
+
+		.termly-styles-links-c9697c {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			flex-wrap: wrap
+		}
+
+		.termly-styles-links-c9697c .termly-styles-link-94b7af {
+			font-size: .75rem;
+			line-height: 1rem;
+			color: #6c7794;
+			white-space: nowrap
+		}
+
+		.termly-styles-links-c9697c>*:not(:last-child) {
+			margin-right: 1rem
+		}
+
+		.termly-styles-root-1c73d9 {
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			padding: 40px;
+			align-items: stretch;
+			background-color: #f5f6fa;
+			font-family: Roboto
+		}
+
+		.termly-styles-container-678fa0 {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 140px
+		}
+
+		.termly-styles-logo-105544 {
+			height: 35px;
+			width: 35px
+		}
+
+		.termly-styles-title-41f08d {
+			color: #013986;
+			font-weight: 500;
+			font-size: 24px;
+			margin: 0
+		}
+
+		.termly-styles-abstractArt-75267c {
+			height: 160px;
+			width: 160px;
+			margin-bottom: 28px
+		}
+
+		.termly-styles-bodyText-2870f8 {
+			color: #6c7794;
+			max-width: 20em;
+			max-width: 17em;
+			text-align: center;
+			line-height: 1.375
+		}
+
+		.termly-styles-logo-01be9b {
+			vertical-align: middle
+		}
+
+		.termly-styles-root-92958f {
+			display: flex;
+			height: 100%;
+			justify-content: space-between;
+			align-items: center;
+			height: 3.75rem;
+			column-gap: 1.5625rem
+		}
+
+		.termly-styles-leftContent-853734 {
+			width: 15.125rem;
+			display: flex
+		}
+
+		.termly-styles-logo-26ba1c {
+			height: 1.875rem;
+			width: auto;
+			margin-right: 1rem
+		}
+
+		.termly-styles-middleContent-36abed {
+			flex: 1;
+			padding-left: 2.5625rem
+		}
+
+		.termly-styles-text-24adde {
+			color: #363840;
+			font-size: .875rem;
+			font-weight: 500;
+			line-height: 1;
+			margin-bottom: .5rem
+		}
+
+		.termly-styles-root-582f89 {
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center
+		}
+
+		.termly-styles-sizer-9ac43c {
+			height: 5rem;
+			width: 5rem
+		}
+
+		.termly-styles-success-865349,
+		.termly-styles-light-2edb58,
+		.termly-styles-error-9bd53e {
+			padding: 1.25rem .8125rem;
+			text-align: left;
+			font-size: .75rem;
+			margin: 0 0 1.875rem;
+			border-radius: .1875rem;
+			line-height: 1.4
+		}
+
+		.termly-styles-error-9bd53e {
+			color: #ff1e1e;
+			background-color: #ffc6c6;
+			border: solid .0625rem #ff9595
+		}
+
+		.termly-styles-light-2edb58 {
+			color: #ff1e1e;
+			padding: .8125rem 1.25rem;
+			background-color: #fff9f9;
+			border: solid .0625rem #ffd0d0;
+			box-shadow: 0 .125rem .25rem 0 rgba(255, 208, 208, .54)
+		}
+
+		.termly-styles-success-865349 {
+			color: #fff;
+			background-color: #5aca8f;
+			border: solid .0625rem #34b973
+		}
+
+		.termly-styles-root-49e1cb {
+			text-transform: uppercase
+		}
+
+		.termly-styles-root-e32e60 {
+			font-size: 1.5rem;
+			font-weight: 500;
+			line-height: 1.333;
+			margin: 0 0 1rem;
+			color: #000
+		}
+
+		.termly-styles-tooltip-container-89ffe3,
+		.termly-styles-container-99fbaf {
+			--tooltipBackground: #fff;
+			--tooltipBorder: #c0c0c0;
+			--tooltipColor: #000;
+			background-color: var(--tooltipBackground);
+			border-radius: 3px;
+			border: 1px solid var(--tooltipBorder);
+			box-shadow: 0 2px 4px rgba(0, 0, 0, .18);
+			color: var(--tooltipColor);
+			display: flex;
+			flex-direction: column;
+			padding: .4rem;
+			transition: opacity .3s;
+			z-index: 9999
+		}
+
+		.termly-styles-tooltip-container-89ffe3[data-popper-interactive=false],
+		[data-popper-interactive=false].termly-styles-container-99fbaf {
+			pointer-events: none
+		}
+
+		.termly-styles-tooltip-arrow-9229ca,
+		.termly-styles-arrow-d429b6 {
+			height: 1rem;
+			position: absolute;
+			width: 1rem;
+			pointer-events: none
+		}
+
+		.termly-styles-tooltip-arrow-9229ca::before,
+		.termly-styles-arrow-d429b6::before {
+			border-style: solid;
+			content: "";
+			display: block;
+			height: 0;
+			margin: auto;
+			width: 0
+		}
+
+		.termly-styles-tooltip-arrow-9229ca::after,
+		.termly-styles-arrow-d429b6::after {
+			border-style: solid;
+			content: "";
+			display: block;
+			height: 0;
+			margin: auto;
+			position: absolute;
+			width: 0
+		}
+
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=bottom] .termly-styles-tooltip-arrow-9229ca,
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=bottom] .termly-styles-arrow-d429b6,
+		[data-popper-placement*=bottom].termly-styles-container-99fbaf .termly-styles-tooltip-arrow-9229ca,
+		[data-popper-placement*=bottom].termly-styles-container-99fbaf .termly-styles-arrow-d429b6 {
+			left: 0;
+			margin-top: -0.4rem;
+			top: 0
+		}
+
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=bottom] .termly-styles-tooltip-arrow-9229ca::before,
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=bottom] .termly-styles-arrow-d429b6::before,
+		[data-popper-placement*=bottom].termly-styles-container-99fbaf .termly-styles-tooltip-arrow-9229ca::before,
+		[data-popper-placement*=bottom].termly-styles-container-99fbaf .termly-styles-arrow-d429b6::before {
+			border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) var(--tooltipBorder) rgba(0, 0, 0, 0);
+			border-width: 0 .5rem .4rem .5rem;
+			position: absolute;
+			top: -1px
+		}
+
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=bottom] .termly-styles-tooltip-arrow-9229ca::after,
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=bottom] .termly-styles-arrow-d429b6::after,
+		[data-popper-placement*=bottom].termly-styles-container-99fbaf .termly-styles-tooltip-arrow-9229ca::after,
+		[data-popper-placement*=bottom].termly-styles-container-99fbaf .termly-styles-arrow-d429b6::after {
+			border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) var(--tooltipBackground) rgba(0, 0, 0, 0);
+			border-width: 0 .5rem .4rem .5rem
+		}
+
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=top] .termly-styles-tooltip-arrow-9229ca,
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=top] .termly-styles-arrow-d429b6,
+		[data-popper-placement*=top].termly-styles-container-99fbaf .termly-styles-tooltip-arrow-9229ca,
+		[data-popper-placement*=top].termly-styles-container-99fbaf .termly-styles-arrow-d429b6 {
+			bottom: 0;
+			left: 0;
+			margin-bottom: -1rem
+		}
+
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=top] .termly-styles-tooltip-arrow-9229ca::before,
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=top] .termly-styles-arrow-d429b6::before,
+		[data-popper-placement*=top].termly-styles-container-99fbaf .termly-styles-tooltip-arrow-9229ca::before,
+		[data-popper-placement*=top].termly-styles-container-99fbaf .termly-styles-arrow-d429b6::before {
+			border-color: var(--tooltipBorder) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+			border-width: .4rem .5rem 0 .5rem;
+			position: absolute;
+			top: 1px
+		}
+
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=top] .termly-styles-tooltip-arrow-9229ca::after,
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=top] .termly-styles-arrow-d429b6::after,
+		[data-popper-placement*=top].termly-styles-container-99fbaf .termly-styles-tooltip-arrow-9229ca::after,
+		[data-popper-placement*=top].termly-styles-container-99fbaf .termly-styles-arrow-d429b6::after {
+			border-color: var(--tooltipBackground) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+			border-width: .4rem .5rem 0 .5rem
+		}
+
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=right] .termly-styles-tooltip-arrow-9229ca,
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=right] .termly-styles-arrow-d429b6,
+		[data-popper-placement*=right].termly-styles-container-99fbaf .termly-styles-tooltip-arrow-9229ca,
+		[data-popper-placement*=right].termly-styles-container-99fbaf .termly-styles-arrow-d429b6 {
+			left: 0;
+			margin-left: -0.7rem
+		}
+
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=right] .termly-styles-tooltip-arrow-9229ca::before,
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=right] .termly-styles-arrow-d429b6::before,
+		[data-popper-placement*=right].termly-styles-container-99fbaf .termly-styles-tooltip-arrow-9229ca::before,
+		[data-popper-placement*=right].termly-styles-container-99fbaf .termly-styles-arrow-d429b6::before {
+			border-color: rgba(0, 0, 0, 0) var(--tooltipBorder) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+			border-width: .5rem .4rem .5rem 0
+		}
+
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=right] .termly-styles-tooltip-arrow-9229ca::after,
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=right] .termly-styles-arrow-d429b6::after,
+		[data-popper-placement*=right].termly-styles-container-99fbaf .termly-styles-tooltip-arrow-9229ca::after,
+		[data-popper-placement*=right].termly-styles-container-99fbaf .termly-styles-arrow-d429b6::after {
+			border-color: rgba(0, 0, 0, 0) var(--tooltipBackground) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+			border-width: .5rem .4rem .5rem 0;
+			left: 6px;
+			top: 0
+		}
+
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=left] .termly-styles-tooltip-arrow-9229ca,
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=left] .termly-styles-arrow-d429b6,
+		[data-popper-placement*=left].termly-styles-container-99fbaf .termly-styles-tooltip-arrow-9229ca,
+		[data-popper-placement*=left].termly-styles-container-99fbaf .termly-styles-arrow-d429b6 {
+			margin-right: -0.7rem;
+			right: 0
+		}
+
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=left] .termly-styles-tooltip-arrow-9229ca::before,
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=left] .termly-styles-arrow-d429b6::before,
+		[data-popper-placement*=left].termly-styles-container-99fbaf .termly-styles-tooltip-arrow-9229ca::before,
+		[data-popper-placement*=left].termly-styles-container-99fbaf .termly-styles-arrow-d429b6::before {
+			border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) var(--tooltipBorder);
+			border-width: .5rem 0 .5rem .4em
+		}
+
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=left] .termly-styles-tooltip-arrow-9229ca::after,
+		.termly-styles-tooltip-container-89ffe3[data-popper-placement*=left] .termly-styles-arrow-d429b6::after,
+		[data-popper-placement*=left].termly-styles-container-99fbaf .termly-styles-tooltip-arrow-9229ca::after,
+		[data-popper-placement*=left].termly-styles-container-99fbaf .termly-styles-arrow-d429b6::after {
+			border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) var(--tooltipBackground);
+			border-width: .5rem 0 .5rem .4em;
+			left: 3px;
+			top: 0
+		}
+
+		.termly-styles-root-b5f94b {
+			font-weight: 400;
+			display: flex
+		}
+
+		.termly-styles-container-99fbaf {
+			--tooltipBorder: #ced4da;
+			--tooltipBackground: #fff;
+			--tooltipColor: #868e96;
+			border-radius: 0;
+			box-shadow: 0px 0px 8px rgba(0, 0, 0, .1);
+			display: block;
+			max-width: 22.0625rem;
+			padding: 1rem
+		}
+
+		.termly-styles-icon-2f3b32 {
+			height: 1rem;
+			width: auto;
+			margin-left: .5rem
+		}
+
+		.termly-styles-loading-9ee2d7 {
+			height: 5rem
+		}
+
+		.termly-styles-root-8ae7bd {
+			box-shadow: 0 0 35px 0 rgba(0, 0, 0, .25);
+			padding: 2.5em 2.86em;
+			box-sizing: border-box
+		}
+
+		@media screen and (max-width: 36.5em) {
+			.termly-styles-root-8ae7bd {
+				max-height: 100vh;
+				overflow-y: auto;
+				padding-bottom: 0
+			}
+		}
+
+		.termly-styles-message-801455 {
+			line-height: 1.75
+		}
+
+		.termly-styles-buttons-efc979 {
+			display: flex;
+			justify-items: center;
+			justify-content: center;
+			gap: 12px;
+			flex-direction: row
+		}
+
+		@media screen and (max-width: 58em) {
+			.termly-styles-buttons-efc979 {
+				flex-direction: row
+			}
+		}
+
+		@media screen and (max-width: 36.5em) {
+			.termly-styles-buttons-efc979 {
+				flex-direction: column-reverse;
+				width: 100%;
+				position: sticky;
+				bottom: 0;
+				box-sizing: border-box;
+				border-top: 1px solid #ededef;
+				padding: 2.5em 0
+			}
+
+			.termly-styles-buttons-efc979>* {
+				justify-content: center
+			}
+		}
+
+		.termly-styles-tcfButtons-c19738 {
+			display: flex;
+			justify-items: center;
+			justify-content: center;
+			gap: 12px;
+			flex-direction: column-reverse;
+			width: initial
+		}
+
+		@media screen and (max-width: 58em) {
+			.termly-styles-tcfButtons-c19738 {
+				flex-direction: row
+			}
+		}
+
+		@media screen and (max-width: 36.5em) {
+			.termly-styles-tcfButtons-c19738 {
+				flex-direction: column-reverse;
+				width: 100%;
+				position: sticky;
+				bottom: 0;
+				box-sizing: border-box;
+				border-top: 1px solid #ededef;
+				padding: 2.5em 0
+			}
+
+			.termly-styles-tcfButtons-c19738>* {
+				justify-content: center
+			}
+		}
+
+		.termly-styles-button-dd5ebb {
+			width: 12.86em;
+			max-width: 16em
+		}
+
+		@media screen and (max-width: 36.5em) {
+			.termly-styles-button-dd5ebb {
+				min-width: 100%
+			}
+		}
+
+		.termly-styles-main-1d1c7d {
+			max-width: 122.5em;
+			margin: auto
+		}
+
+		.termly-styles-logo-4d6381 {
+			display: flex;
+			margin-bottom: 15px;
+			justify-content: center
+		}
+
+		.termly-styles-termly-tooltip-91a6f3,
+		.termly-styles-termly-banner-caea15 {
+			display: block;
+			border-radius: 5px;
+			box-sizing: border-box;
+			opacity: 1;
+			position: fixed;
+			z-index: var(--termly-z-index);
+			border-width: 0;
+			margin: 1.667em
+		}
+
+		@media screen and (max-width: 46em) {
+
+			.termly-styles-termly-tooltip-91a6f3,
+			.termly-styles-termly-banner-caea15 {
+				border-radius: 0;
+				width: 100% !important;
+				max-width: 100vw;
+				margin: 0 !important;
+				left: 0;
+				right: 0
+			}
+		}
+
+		.termly-styles-termly-banner-caea15 {
+			width: calc(100% - 40px);
+			border-width: 0;
+			left: 0
+		}
+
+		@media only screen and (max-width: 70em) {
+			.termly-styles-termly-banner-caea15 {
+				width: calc(100% - 20px);
+				margin: 10px
+			}
+		}
+
+		.termly-styles-termly-banner-caea15.termly-styles-top-445cdd {
+			top: 0
+		}
+
+		.termly-styles-termly-banner-caea15.termly-styles-bottom-656d9b {
+			bottom: 0
+		}
+
+		.termly-styles-termly-banner-caea15 .termly-styles-logo-3600c4 {
+			justify-content: left
+		}
+
+		@media screen and (max-width: 58em) {
+			.termly-styles-termly-banner-caea15 .termly-styles-logo-3600c4 {
+				justify-content: center
+			}
+		}
+
+		.termly-styles-termly-banner-caea15 .termly-styles-content-b79ae6 {
+			display: flex;
+			flex: 1;
+			align-items: center
+		}
+
+		@media screen and (max-width: 58em) {
+			.termly-styles-termly-banner-caea15 .termly-styles-content-b79ae6 {
+				flex-direction: column
+			}
+		}
+
+		.termly-styles-termly-banner-caea15 .termly-styles-message-f8fab6 {
+			margin-right: 2em
+		}
+
+		@media screen and (max-width: 58em) {
+			.termly-styles-termly-banner-caea15 .termly-styles-message-f8fab6 {
+				margin-bottom: 2em;
+				margin-right: 0
+			}
+		}
+
+		.termly-styles-termly-tooltip-91a6f3 {
+			width: 45.7em
+		}
+
+		.termly-styles-termly-tooltip-91a6f3.termly-styles-top_left-f9790e {
+			top: 0;
+			left: 0
+		}
+
+		.termly-styles-termly-tooltip-91a6f3.termly-styles-top_right-728bcf {
+			top: 0;
+			right: 0
+		}
+
+		.termly-styles-termly-tooltip-91a6f3.termly-styles-bottom_left-bd1b4c {
+			left: 0;
+			bottom: 0
+		}
+
+		.termly-styles-termly-tooltip-91a6f3.termly-styles-bottom_right-617060 {
+			right: 0;
+			bottom: 0
+		}
+
+		.termly-styles-termly-tooltip-91a6f3 .termly-styles-message-f8fab6 {
+			margin-bottom: 1.5em
+		}
+
+		.termly-styles-link-d62d21 {
+			cursor: pointer;
+			font-weight: normal;
+			text-decoration: underline
+		}
+	</style>
+
+</head>
+
+<body class="__className_44830f __className_767b5d">
+	<div id="termly-code-snippet-support">
+		<div dir="ltr" style="">
+		</div>
+	</div><noscript><iframe title="gtm-body-script" src="https://www.googletagmanager.com/ns.html?id=GTM-NQJ4HZF"
+			height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<div id="__next">
+		<div></div>
+		<header class="header sticky top-0 z-20 w-full transition-all duration-200 bg-white/20">
+			<div class="container py-3 transition-all duration-200 sm:py-6  grid-lines grid-lines-header">
+				<div class="inner-container flex items-center justify-between"><a aria-label="Home"
+						href="https://astrafi.com/">
+						<div
+							class="logo block h-auto w-[125px] cursor-pointer text-midnight transition-all duration-200 sm:hover:opacity-70">
+							<svg width="100%" height="100%" viewBox="0 0 125 40" fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#clip0_1705_36503)">
+									<path
+										d="M52.6402 13.8579H54.7403L60.6284 27.612H57.8512L56.5754 24.4642H50.6579L49.4312 27.6169H46.7324L52.6402 13.8579ZM55.7413 22.3657L53.6265 16.7731L51.5214 22.3657H55.7413Z"
+										fill="currentColor"></path>
+									<path
+										d="M72.7772 16.7582C72.5236 16.3859 72.1645 16.0996 71.7468 15.9367C71.3128 15.7624 70.8498 15.6733 70.3827 15.6744C70.1082 15.6744 69.8348 15.7076 69.5682 15.7733C69.3144 15.8381 69.0726 15.9433 68.8518 16.0851C68.6475 16.2307 68.4795 16.4222 68.3611 16.6444C68.2239 16.89 68.1576 17.1695 68.1697 17.4511C68.16 17.656 68.1995 17.8603 68.285 18.0464C68.3704 18.2326 68.4992 18.3951 68.6604 18.5202C69.0287 18.7871 69.4316 19.0019 69.8577 19.1586C70.3483 19.3368 70.839 19.51 71.4229 19.6536C71.9717 19.8146 72.4965 20.0493 72.9833 20.3514C73.4627 20.6534 73.8713 21.0571 74.1805 21.5343C74.5374 22.1295 74.7084 22.8194 74.6712 23.514C74.6888 24.183 74.5528 24.847 74.2738 25.4541C74.0163 25.9872 73.6442 26.4555 73.1845 26.8251C72.7116 27.1991 72.1719 27.478 71.5947 27.6466C70.9762 27.8287 70.3351 27.9204 69.6908 27.9189C68.8549 27.9255 68.0243 27.7831 67.2374 27.4982C66.4466 27.2117 65.7466 26.7159 65.2109 26.0629L67.0363 24.2712C67.3264 24.723 67.7291 25.0899 68.2041 25.3353C68.6765 25.5842 69.202 25.7133 69.735 25.7115C70.0217 25.7063 70.3067 25.6665 70.5839 25.5927C70.8575 25.5173 71.1175 25.3987 71.3542 25.2413C71.5826 25.0861 71.7737 24.8816 71.9136 24.6424C72.0583 24.3919 72.1314 24.1058 72.1246 23.8159C72.137 23.597 72.0992 23.3782 72.0141 23.1765C71.929 22.9748 71.7989 22.7956 71.6339 22.6528C71.2748 22.359 70.8704 22.1266 70.4367 21.9649C69.946 21.7768 69.4553 21.6036 68.8763 21.4353C68.3269 21.2762 67.8006 21.0449 67.311 20.7474C66.8324 20.4527 66.4237 20.0557 66.1138 19.5843C65.7608 18.9874 65.5901 18.2988 65.6231 17.6046C65.6057 16.9618 65.7545 16.3256 66.0549 15.7585C66.3346 15.2482 66.7214 14.8056 67.1884 14.4618C67.6745 14.109 68.2197 13.8475 68.7978 13.6897C69.4005 13.5221 70.0225 13.4356 70.6477 13.4323C71.357 13.4312 72.0622 13.5414 72.738 13.759C73.4126 13.9853 74.0304 14.3569 74.5486 14.8478L72.7772 16.7582Z"
+										fill="currentColor"></path>
+									<path
+										d="M83.8173 15.996H79.6318V13.7887L90.4268 13.7639V15.9812H86.2462V27.5278H83.8173V15.996Z"
+										fill="currentColor"></path>
+									<path
+										d="M95.7315 13.754H100.471C101.109 13.7523 101.744 13.812 102.37 13.9322C102.954 14.036 103.514 14.2456 104.024 14.5508C104.5 14.846 104.892 15.2603 105.162 15.7535C105.467 16.3475 105.616 17.0104 105.594 17.6788C105.626 18.5861 105.337 19.4752 104.78 20.1881C104.188 20.8897 103.348 21.3317 102.439 21.4204L106.075 27.4981H103.131L99.9464 21.6778H98.1751V27.508H95.7217L95.7315 13.754ZM100.059 19.5793C100.408 19.5793 100.751 19.5793 101.1 19.5249C101.437 19.5016 101.768 19.4231 102.081 19.2922C102.363 19.1721 102.606 18.975 102.783 18.7231C102.977 18.4059 103.069 18.0361 103.048 17.6639C103.067 17.3158 102.98 16.97 102.797 16.6741C102.633 16.4321 102.405 16.2403 102.14 16.1198C101.854 15.9943 101.551 15.9142 101.242 15.8822C100.926 15.8434 100.608 15.8236 100.29 15.8228H98.1849V19.5545L100.059 19.5793Z"
+										fill="currentColor"></path>
+									<path
+										d="M116.629 13.7095H118.744L124.632 27.4586H121.855L120.575 24.3108H114.657L113.43 27.4586H110.717L116.629 13.7095ZM119.726 22.2173L117.611 16.6197L115.481 22.2272L119.726 22.2173Z"
+										fill="currentColor"></path>
+									<path
+										d="M40.1326 25.5531L27.5271 19.614L36.8009 8.1168L23.3367 14.5509L20.0393 0L16.791 14.5608L3.26301 8.19104L12.5859 19.6486L0 25.6422L14.2297 25.954L11.1335 39.9604L20.0639 28.879L20.844 29.8243L29.1414 40L25.9422 25.9292L40.1326 25.5531ZM9.10209 12.7642L17.9343 16.9265L20.0442 7.45855L21.8058 15.2536L14.1021 18.9211L9.10209 12.7642ZM6.98236 24.1475L27.6301 14.3083L14.9657 24.3207L6.98236 24.1475ZM14.2297 33.4769L15.9716 25.6224L28.6409 15.61L14.2297 33.4769ZM26.006 33.5412L21.8597 28.4781L21.0992 27.5724L26.4574 20.9354L27.5467 21.4303L33.1453 24.0633L23.8961 24.3108L26.006 33.5412Z"
+										fill="currentColor"></path>
+									<g opacity="0.5">
+										<path
+											d="M20.0537 28.879L20.8339 29.8243L20.9075 29.9134L21.9674 28.6068L21.8594 28.4781L21.1087 27.5724"
+											fill="currentColor"></path>
+										<path d="M23.8955 24.3306L24.2292 25.8005L25.451 24.291L23.8955 24.3306Z"
+											fill="currentColor"></path>
+										<path
+											d="M26.457 20.9354L27.5463 21.4501L27.6886 21.5145L28.7534 20.193L27.5218 19.614"
+											fill="currentColor"></path>
+									</g>
+								</g>
+								<defs>
+									<clippath id="clip0_1705_36503">
+										<rect width="124.865" height="40" fill="white"></rect>
+									</clippath>
+								</defs>
+							</svg>
+						</div>
+					</a>
+					<ul class="hidden gap-x-6 lg:flex">
+						<li class="t-header"><span
+								class="nav-link inline-block cursor-pointer border-b-2 border-transparent py-2 text-midnight transition-colors duration-200 hover:border-[#A1A1A1] ">Platform</span>
+						</li>
+						<li class="t-header"><span
+								class="nav-link inline-block cursor-pointer border-b-2 border-transparent py-2 text-midnight transition-colors duration-200 hover:border-[#A1A1A1] ">Use
+								cases</span></li>
+						<li class="t-header"><span
+								class="nav-link inline-block cursor-pointer border-b-2 border-transparent py-2 text-midnight transition-colors duration-200 hover:border-[#A1A1A1] ">Developers</span>
+						</li>
+						<li class="t-header"><span
+								class="nav-link inline-block cursor-pointer border-b-2 border-transparent py-2 text-midnight transition-colors duration-200 hover:border-[#A1A1A1] ">Resources</span>
+						</li>
+					</ul>
+					<div class="hidden gap-x-2.5 sm:gap-x-3 lg:flex"><a target="_blank" class="secondary-button"
+							href="https://dashboard-sandbox.astra.finance/">
+							<div class="btn group relative  bg-transparent text-midnight "><span class="relative">Log
+									in</span></div>
+						</a><a target="" class="primary-button" href="https://astrafi.com/demo/">
+							<div class="btn group relative  btn-outline hover:!bg-aqua hover:border-pelorous  "><span
+									class="relative">Start now</span><span
+									class="absolute top-1/2 right-4 -translate-y-1/2 transition-all duration-200 group-hover:right-3.5 "><svg
+										width="7" height="10" viewBox="0 0 7 10" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path d="M1.315 0.629998L5.68497 5L1.315 9.37" stroke="currentColor"
+											stroke-width="1.24857"></path>
+									</svg></span></div>
+						</a></div><button type="button" aria-label="Main Menu" name="Main Menu"
+						class="burger flex aspect-[52/37] w-[52px] items-center justify-center rounded-lg border border-midnight/10 py-2.5 px-4 transition-colors duration-200 lg:hidden"><svg
+							class="transition-colors duration-200 text-midnight" width="20" height="8"
+							viewBox="0 0 20 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<rect width="20" height="2" rx="1" fill="currentColor"></rect>
+							<rect y="6" width="20" height="2" rx="1" fill="currentColor"></rect>
+						</svg></button>
+				</div>
+			</div>
+		</header>
+		<main>
+			<section id="" class="overflow-visible bg-white">
+				<div class="container grid-lines pt-12 md:pt-16 lg:pt-20 pb-12 md:pb-16 lg:pb-20">
+					<div class="inner-container space-y-16 md:space-y-26">
+						<div class="flex w-full flex-col  md:items-center " style="opacity: 1;">
+							<div
+								class="text-card flex flex-col  items-center space-y-4 sm:space-y-6 text-center md:text-center md:max-w-4xl ">
+								<h1 class="highlighted w-full text-h1  md:w-full ">Welcome to<span
+										class="block"><span class="highlight">PantheonMEETS</span></span></h1>
+								<div class="">
+									<div class="prose w-full  md:max-w-2xl text-midnight/70" id="parText">
+										<p>We are a meeting service aimed at breaking the barrier 
+                                            between deaf communities and the rest of the world.  
+										</p>
+									</div>
+								</div>
+								<div class="w-auto pt-2">
+									<div class="flex space-x-3 sm:space-x-4">
+										<div><a target="" class="inline-block w-full md:w-auto "
+												button="[object Object]" href="https://astrafi.com/demo/">
+												<div
+													class="btn group relative w-full md:w-auto btn-black btn-shadow btn-hover-glow bg-gradient-to-r from-midnight to-[#041E1A] text-ice ">
+													<span class="relative">Start now</span><span
+														class="absolute top-1/2 right-4 -translate-y-1/2 transition-all duration-200 group-hover:right-3.5 "><svg
+															width="7" height="10" viewBox="0 0 7 10" fill="none"
+															xmlns="http://www.w3.org/2000/svg">
+															<path d="M1.315 0.629998L5.68497 5L1.315 9.37"
+																stroke="currentColor" stroke-width="1.24857"></path>
+														</svg></span></div>
+											</a></div>
+										<div><a href="https://dashboard-sandbox.astra.finance/" target="_blank"
+												class="inline-block w-full md:w-auto " button="[object Object]">
+												<div
+													class="btn group relative w-full md:w-auto btn-outline hover:!bg-aqua hover:border-pelorous  ">
+													<span class="relative">Sign up with Sandbox</span><span
+														class="absolute top-1/2 right-4 -translate-y-1/2 transition-all duration-200 group-hover:right-3.5 "><svg
+															width="7" height="10" viewBox="0 0 7 10" fill="none"
+															xmlns="http://www.w3.org/2000/svg">
+															<path d="M1.315 0.629998L5.68497 5L1.315 9.37"
+																stroke="currentColor" stroke-width="1.24857"></path>
+														</svg></span></div>
+											</a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div
+							class="asset-container relative overflow-hidden rounded-lg w-full h-full min-h-[472px] md:min-h-[1160] lg:min-h-[583px]">
+							<div class="h-full w-full aspect-[280/472] min-h-[472px] md:aspect-[688/1160] md:min-h-[1160px] lg:aspect-[1200/583] lg:min-h-[583px]"
+								style="opacity: 1;">
+							</div><a target="" href="https://astrafi.com/platform-overview/"><button type="button"
+									name="Lottie Button" class="absolute right-4 bottom-4 sm:right-5 sm:bottom-5">
+									<div class="btn group relative  btn-outline hover:!bg-aqua hover:border-pelorous  ">
+										<span class="relative">See how it works</span><span
+											class="absolute top-1/2 right-4 -translate-y-1/2 transition-all duration-200 group-hover:right-3.5 "><svg
+												width="7" height="10" viewBox="0 0 7 10" fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+												<path d="M1.315 0.629998L5.68497 5L1.315 9.37" stroke="currentColor"
+													stroke-width="1.24857"></path>
+											</svg></span></div>
+								</button></a>
+						</div>
+						<div class="space-y-8 sm:space-y-12">
+							<div class="featured-logos grid items-center gap-y-8 grid-cols-2 md:auto-cols-fr md:grid-cols-4"
+								style="opacity: 1;">
+								<div class="featured-logo mx-4 flex items-center justify-center sm:mx-[35px]  "
+									style="opacity: 1;"><img draggable="false" alt="Visa Logo" loading="lazy" width="77"
+										height="25" decoding="async" data-nimg="1" class="scale-95"
+										style="color:transparent"
+										src="./assets/visa-logo.svg"></div>
+								<div class="featured-logo mx-4 flex items-center justify-center sm:mx-[35px]  "
+									style="opacity: 1;"><img draggable="false" alt="Unit Logo" loading="lazy" width="63"
+										height="34" decoding="async" data-nimg="1" class="scale-95"
+										style="color:transparent"
+										src="./assets/unit-logo.svg"></div>
+								<div class="featured-logo mx-4 flex items-center justify-center sm:mx-[35px]  "
+									style="opacity: 1;"><img draggable="false" alt="alloy-logo" loading="lazy"
+										width="235" height="60" decoding="async" data-nimg="1" class="scale-95"
+										style="color:transparent"
+										src="./assets/alloy-logo.svg"></div>
+								<div class="featured-logo mx-4 flex items-center justify-center sm:mx-[35px]  "
+									style="opacity: 1;"><img draggable="false" alt="CrossRiver Green V2" loading="lazy"
+										width="257.5" height="112" decoding="async" data-nimg="1" class="scale-95"
+										style="color:transparent"
+										src="./assets/CrossRiver-Green-v2-2.svg"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="" class="overflow-visible bg-white">
+				<div class="container grid-lines pt-14 md:pt-20 lg:pt-30 pb-0 md:pb-0 lg:pb-0">
+					<div class="inner-container space-y-16 md:space-y-20">
+						<div class="flex w-full flex-col  md:items-center " style="opacity:1">
+							<div
+								class="text-card flex flex-col  items-center space-y-4 sm:space-y-6 text-center md:text-center md:max-w-4xl ">
+								<h2 class="highlighted w-full text-h1  md:w-full ">Secure, fast transfers <span
+										class="block"><span class="highlight">for multiple payment flows</span></span>
+								</h2>
+								<div class="">
+									<div class="prose w-full  md:max-w-xl text-midnight/70">
+										<p>Astra provides the infrastructure for moving money, making your payments
+											faster and more secure. All through a simple platform integration.</p>
+									</div>
+								</div>
+								<div class="w-auto pt-2">
+									<div class="flex space-x-3 sm:space-x-4">
+										<div><a target="" class="inline-block  " button="[object Object]"
+												href="https://astrafi.com/platform-overview/">
+												<div
+													class="btn group relative  btn-outline hover:!bg-aqua hover:border-pelorous  ">
+													<span class="relative">Explore the product</span><span
+														class="absolute top-1/2 right-4 -translate-y-1/2 transition-all duration-200 group-hover:right-3.5 "><svg
+															width="7" height="10" viewBox="0 0 7 10" fill="none"
+															xmlns="http://www.w3.org/2000/svg">
+															<path d="M1.315 0.629998L5.68497 5L1.315 9.37"
+																stroke="currentColor" stroke-width="1.24857"></path>
+														</svg></span></div>
+											</a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="grid gap-6 lg:gap-[34px] lg:grid-cols-[40%_auto]"><a target=""
+								class="group flex flex-col-reverse overflow-hidden rounded-lg sm:flex-row lg:col-span-2 bg-aqua"
+								href="https://astrafi.com/instant-disbursements/">
+								<div class="flex flex-col px-6 py-8 sm:p-8 lg:p-[50px] flex-1">
+									<div class="mb-auto sm:max-w-[464px]">
+										<div class="t-eyebrow mb-4">Instant Disbursements &amp; Payouts</div>
+										<h3 class="text-h4">Process transfers faster than ever before</h3>
+										<p class="t-16 mt-2 text-midnight/70 sm:mt-3.5">Send funds from a bank account
+											directly to a debit card. The upshot? Funds will appear instantly, so your
+											users can start spending right away.</p>
+									</div>
+									<div class="mt-6 sm:mt-8">
+										<div
+											class="btn group relative  btn-outline  group-hover:!bg-aqua group-hover:border-pelorous ">
+											<span class="relative">Move money faster</span><span
+												class="absolute top-1/2 right-4 -translate-y-1/2 transition-all duration-200 group-hover:right-3.5 "><svg
+													width="7" height="10" viewBox="0 0 7 10" fill="none"
+													xmlns="http://www.w3.org/2000/svg">
+													<path d="M1.315 0.629998L5.68497 5L1.315 9.37" stroke="currentColor"
+														stroke-width="1.24857"></path>
+												</svg></span></div>
+									</div>
+								</div>
+								<div class="relative sm:w-1/2 sm:max-w-[580px]">
+									<div
+										class="asset-container relative overflow-hidden rounded-lg w-full h-full flex h-full items-center bg-cardin ">
+									</div>
+								</div>
+							</a><a target="" class="group flex overflow-hidden rounded-lg bg-aqua flex-col-reverse"
+								href="https://astrafi.com/instant-account-funding/">
+								<div class="flex flex-1 flex-col px-6 py-8 sm:p-8 lg:p-[34px]">
+									<div class="mb-auto">
+										<div class="t-eyebrow mb-4">Instant account funding</div>
+										<h3 class="text-h4">Delight users with real-time deposits</h3>
+									</div>
+								</div>
+								<div class="relative w-full">
+									<div
+										class="asset-container relative overflow-hidden rounded-lg w-full h-full flex h-full items-center bg-sapphire ">
+
+									</div>
+								</div>
+							</a><a target=""
+								class="group flex overflow-hidden rounded-lg bg-aqua flex-col-reverse sm:flex-row-reverse"
+								href="https://astrafi.com/accelerated-bank-transfers/">
+								<div class="flex flex-1 flex-col px-6 py-8 sm:p-8 lg:p-[34px] xl:p-[50px]">
+									<div class="mb-auto">
+										<div class="t-eyebrow mb-4">Accelerated Bank Transfers</div>
+										<h3 class="text-h4">Optimize ACH for speed &amp; security</h3>
+									</div>
+									<div class="mt-6 sm:mt-8">
+										<div
+											class="btn group relative  btn-outline  group-hover:!bg-aqua group-hover:border-pelorous ">
+											<span class="relative">Accelerate ACH</span><span
+												class="absolute top-1/2 right-4 -translate-y-1/2 transition-all duration-200 group-hover:right-3.5 "><svg
+													width="7" height="10" viewBox="0 0 7 10" fill="none"
+													xmlns="http://www.w3.org/2000/svg">
+													<path d="M1.315 0.629998L5.68497 5L1.315 9.37" stroke="currentColor"
+														stroke-width="1.24857"></path>
+												</svg></span></div>
+									</div>
+								</div>
+							</a></div>
+					</div>
+				</div>
+			</section>
+			<section id="" class="overflow-visible bg-white">
+				<div class="container grid-lines pt-16 md:pt-40 lg:pt-50 pb-16 md:pb-40 lg:pb-50">
+					<div class="inner-container">
+						<div class="grid items-center gap-12 sm:gap-14 md:grid-cols-2 md:gap-[38px]">
+							<div class="two-col order-last " style="transform:translateY(-30px) translateZ(0)">
+								<div class="flex flex-col">
+									<div class="w-full max-w-[480px] mx-auto">
+										<div class="flex w-full flex-col  items-start " style="opacity:1">
+											<div
+												class="text-card flex flex-col  items-start space-y-4 sm:space-y-5 text-left md:text-left md:max-w-md ">
+												<h3 class="highlighted w-full text-h3  md:w-full ">The super payments
+													API <span class=""><span class="highlight">for product
+															teams</span></span></h3>
+												<div class="">
+													<div class="prose w-full  md:w-full text-midnight/70">
+														<p>Get started with ease via a simple platform integration.
+															Unlike payment gateways, we provide a broad range of
+															solutions, integrating with your entire product.</p>
+													</div>
+												</div>
+												<div class="w-auto pt-2">
+													<div class="flex space-x-3 sm:space-x-4">
+														<div><a href="https://docs.astra.finance/" target="_blank"
+																class="inline-block  " button="[object Object]">
+																<div
+																	class="btn group relative  btn-outline hover:!bg-aqua hover:border-pelorous  ">
+																	<span class="relative">See docs</span><span
+																		class="absolute top-1/2 right-4 -translate-y-1/2 transition-all duration-200 group-hover:right-3.5 "><svg
+																			width="7" height="10" viewBox="0 0 7 10"
+																			fill="none"
+																			xmlns="http://www.w3.org/2000/svg">
+																			<path
+																				d="M1.315 0.629998L5.68497 5L1.315 9.37"
+																				stroke="currentColor"
+																				stroke-width="1.24857"></path>
+																		</svg></span></div>
+															</a></div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<ul class="mt-10 flex flex-col gap-y-2 sm:gap-y-3 lg:mt-[60px] ">
+											<li class="flex gap-x-3"><span class="mt-0.5 sm:mt-1"><svg class="shrink-0"
+														width="18" height="18" viewBox="0 0 18 18" fill="none"
+														xmlns="http://www.w3.org/2000/svg">
+														<rect width="18" height="18" rx="9" fill="#03171A"></rect>
+														<path d="M5.4 9.45L7.45714 11.25L12.6 6.75" stroke="#B5FFFE"
+															stroke-width="1.5" stroke-miterlimit="10"
+															stroke-linecap="square"></path>
+													</svg></span><span class="t-16 text-midnight">Register users in
+													seconds</span></li>
+											<li class="flex gap-x-3"><span class="mt-0.5 sm:mt-1"><svg class="shrink-0"
+														width="18" height="18" viewBox="0 0 18 18" fill="none"
+														xmlns="http://www.w3.org/2000/svg">
+														<rect width="18" height="18" rx="9" fill="#03171A"></rect>
+														<path d="M5.4 9.45L7.45714 11.25L12.6 6.75" stroke="#B5FFFE"
+															stroke-width="1.5" stroke-miterlimit="10"
+															stroke-linecap="square"></path>
+													</svg></span><span class="t-16 text-midnight">Collect authorization
+													via SDK</span></li>
+											<li class="flex gap-x-3"><span class="mt-0.5 sm:mt-1"><svg class="shrink-0"
+														width="18" height="18" viewBox="0 0 18 18" fill="none"
+														xmlns="http://www.w3.org/2000/svg">
+														<rect width="18" height="18" rx="9" fill="#03171A"></rect>
+														<path d="M5.4 9.45L7.45714 11.25L12.6 6.75" stroke="#B5FFFE"
+															stroke-width="1.5" stroke-miterlimit="10"
+															stroke-linecap="square"></path>
+													</svg></span><span class="t-16 text-midnight">Link bank accounts or
+													cards</span></li>
+											<li class="flex gap-x-3"><span class="mt-0.5 sm:mt-1"><svg class="shrink-0"
+														width="18" height="18" viewBox="0 0 18 18" fill="none"
+														xmlns="http://www.w3.org/2000/svg">
+														<rect width="18" height="18" rx="9" fill="#03171A"></rect>
+														<path d="M5.4 9.45L7.45714 11.25L12.6 6.75" stroke="#B5FFFE"
+															stroke-width="1.5" stroke-miterlimit="10"
+															stroke-linecap="square"></path>
+													</svg></span><span class="t-16 text-midnight">Initiate transfers via
+													API</span></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="two-col overflow-hidden rounded-lg"
+								style="transform:translateY(30px) translateZ(0)">
+								<div class="asset-container relative overflow-hidden rounded-lg w-full h-full ">
+									<div class="h-full w-full " style="opacity: 1;">
+										<div class="dotlottie-container main  lottie-player " lang="en" width="100%"
+											height="100%">
+											<div data-name="d7c80429-d23f-4e71-bb8a-d382a7cc88b9" role="figure"
+												class="animation "
+												style="position: relative; background-color: transparent;">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="" class="overflow-visible bg-stone">
+				<div class="container grid-lines pt-14 md:pt-32 lg:pt-40 pb-14 md:pb-32 lg:pb-40">
+					<div class="inner-container">
+						<div class="grid items-center gap-12 sm:gap-14 md:grid-cols-2 md:gap-[38px]">
+							<div class="two-col order-last md:order-none"
+								style="transform:translateY(-30px) translateZ(0)">
+								<div class="flex flex-col">
+									<div class="w-full max-w-[480px] mr-auto">
+										<div class="flex w-full flex-col  items-start " style="opacity:1">
+											<div
+												class="text-card flex flex-col  items-start space-y-4 sm:space-y-5 text-left md:text-left md:w-full ">
+												<h3 class="highlighted w-full text-h3  md:w-full ">Full-stack <span
+														class=""><span class="highlight">payments</span></span></h3>
+												<div class="">
+													<div class="prose w-full  md:w-full text-midnight/70">
+														<p>Before Astra, new fintech companies would have to spend
+															months – if not years – developing countless layers of
+															middleware features and partnering with legacy financial
+															institutions. With Astra, you get a one-stop-shop.</p>
+													</div>
+												</div>
+											</div>
+										</div>
+										<ul class="mt-10 flex flex-col gap-y-2 sm:gap-y-3 lg:mt-[60px] ">
+											<li class="flex gap-x-3"><span class="mt-0.5 sm:mt-1"><svg class="shrink-0"
+														width="18" height="18" viewBox="0 0 18 18" fill="none"
+														xmlns="http://www.w3.org/2000/svg">
+														<rect width="18" height="18" rx="9" fill="#03171A"></rect>
+														<path d="M5.4 9.45L7.45714 11.25L12.6 6.75" stroke="#B5FFFE"
+															stroke-width="1.5" stroke-miterlimit="10"
+															stroke-linecap="square"></path>
+													</svg></span><span class="t-16 text-midnight">Built-in
+													compliance</span></li>
+											<li class="flex gap-x-3"><span class="mt-0.5 sm:mt-1"><svg class="shrink-0"
+														width="18" height="18" viewBox="0 0 18 18" fill="none"
+														xmlns="http://www.w3.org/2000/svg">
+														<rect width="18" height="18" rx="9" fill="#03171A"></rect>
+														<path d="M5.4 9.45L7.45714 11.25L12.6 6.75" stroke="#B5FFFE"
+															stroke-width="1.5" stroke-miterlimit="10"
+															stroke-linecap="square"></path>
+													</svg></span><span class="t-16 text-midnight">Automatic fraud
+													detection</span></li>
+											<li class="flex gap-x-3"><span class="mt-0.5 sm:mt-1"><svg class="shrink-0"
+														width="18" height="18" viewBox="0 0 18 18" fill="none"
+														xmlns="http://www.w3.org/2000/svg">
+														<rect width="18" height="18" rx="9" fill="#03171A"></rect>
+														<path d="M5.4 9.45L7.45714 11.25L12.6 6.75" stroke="#B5FFFE"
+															stroke-width="1.5" stroke-miterlimit="10"
+															stroke-linecap="square"></path>
+													</svg></span><span class="t-16 text-midnight">Systematic chargeback
+													management</span></li>
+											<li class="flex gap-x-3"><span class="mt-0.5 sm:mt-1"><svg class="shrink-0"
+														width="18" height="18" viewBox="0 0 18 18" fill="none"
+														xmlns="http://www.w3.org/2000/svg">
+														<rect width="18" height="18" rx="9" fill="#03171A"></rect>
+														<path d="M5.4 9.45L7.45714 11.25L12.6 6.75" stroke="#B5FFFE"
+															stroke-width="1.5" stroke-miterlimit="10"
+															stroke-linecap="square"></path>
+													</svg></span><span class="t-16 text-midnight">Simplified user and
+													merchant onboarding</span></li>
+											<li class="flex gap-x-3"><span class="mt-0.5 sm:mt-1"><svg class="shrink-0"
+														width="18" height="18" viewBox="0 0 18 18" fill="none"
+														xmlns="http://www.w3.org/2000/svg">
+														<rect width="18" height="18" rx="9" fill="#03171A"></rect>
+														<path d="M5.4 9.45L7.45714 11.25L12.6 6.75" stroke="#B5FFFE"
+															stroke-width="1.5" stroke-miterlimit="10"
+															stroke-linecap="square"></path>
+													</svg></span><span class="t-16 text-midnight">No prefunding
+													necessary</span></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="two-col overflow-hidden rounded-lg"
+								style="transform:translateY(30px) translateZ(0)">
+								<div class="asset-container relative overflow-hidden rounded-lg w-full h-full ">
+									<div class="h-full w-full " style="opacity: 1;">
+										<div class="dotlottie-container main  lottie-player " lang="en" width="100%"
+											height="100%">
+											<div data-name="b0702dcf-933b-4e16-9c35-9a2b5bd4e319" role="figure"
+												class="animation "
+												style="position: relative; background-color: transparent;">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<div class="footer-cta relative overflow-hidden bg-midnight">
+			<div class="grid-lines grid-lines-light container relative py-24 sm:py-40 lg:pt-48 lg:pb-56">
+				<div class="flex w-full flex-col  md:items-center " style="opacity:1">
+					<div
+						class="text-card flex flex-col  items-center space-y-4 sm:space-y-6 text-center md:text-center md:max-w-2xl ">
+						<h2 class="highlighted w-full text-h1  md:w-full !text-white">Get started <span class=""><span
+									class="highlight">in minutes</span></span></h2>
+						<div class="">
+							<div class="prose w-full  md:max-w-xl !text-white/70">
+								<p>It’s simple and painless to integrate with our API. Check out our docs, leverage our
+									SDKs and Libraries, and start building in our Sandbox.</p>
+							</div>
+						</div>
+						<div class="w-auto pt-2">
+							<div class="flex space-x-3 sm:space-x-4">
+								<div><a target="" class="inline-block  " button="[object Object]"
+										href="https://astrafi.com/demo/">
+										<div
+											class="btn group relative  btn-white btn-shadow btn-hover-glow bg-gradient-to-b from-white to-[#EEFDFD] text-midnight ">
+											<span class="relative">Start now</span><span
+												class="absolute top-1/2 right-4 -translate-y-1/2 transition-all duration-200 group-hover:right-3.5 "><svg
+													width="7" height="10" viewBox="0 0 7 10" fill="none"
+													xmlns="http://www.w3.org/2000/svg">
+													<path d="M1.315 0.629998L5.68497 5L1.315 9.37" stroke="currentColor"
+														stroke-width="1.24857"></path>
+												</svg></span></div>
+									</a></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer-cta-glow absolute inset-x-0 bottom-0 h-[0.5px]" style="opacity:0"></div>
+		</div>
+		<footer class="bg-[#020C0E]">
+			<div class="grid-lines grid-lines-light container py-14 md:pt-30 md:pb-26">
+				<div class="inner-container">
+					<div class="md:-ml-5 md:grid md:w-[calc(100%+40px)] md:grid-cols-4">
+						<div class="hidden md:block md:pl-5 md:pr-10">
+							<div class="h-auto w-[138px] text-white">
+								<h1 class="text-h1" style="color:white">Astra</h1>
+							</div>
+						</div>
+						<div
+							class="col-span-3 grid grid-cols-2 gap-x-8 sm:auto-cols-fr sm:grid-flow-col sm:grid-cols-none sm:gap-x-12 md:gap-x-0">
+							<div class="mb-10 last:mb-0 sm:mb-0 sm:space-y-14 md:pl-5 md:pr-6 space-y-10">
+								<div class="footer-grid-col">
+									<h2 class="footer-col-heading">Platform</h2>
+									<ul class="list-none space-y-3 sm:space-y-4">
+										<li class="t-footer"><a target="" aria-label="Overview"
+												class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+												href="https://astrafi.com/platform-overview/">Overview</a></li>
+										<li class="t-footer"><a target="" aria-label="Instant Disbursements"
+												class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+												href="https://astrafi.com/instant-disbursements/">Instant
+												Disbursements</a></li>
+										<li class="t-footer"><a target="" aria-label="Instant Funding"
+												class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+												href="https://astrafi.com/instant-account-funding/">Instant Funding</a>
+										</li>
+										<li class="t-footer"><a target="" aria-label="Accelerated Transfers"
+												class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+												href="https://astrafi.com/accelerated-bank-transfers/">Accelerated
+												Transfers</a></li>
+									</ul>
+								</div>
+								<div class="footer-grid-col">
+									<h2 class="footer-col-heading">For Developers</h2>
+									<ul class="list-none space-y-3 sm:space-y-4">
+										<li class="t-footer"><a target="_blank" aria-label="Documentation"
+												class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+												href="https://docs.astra.finance/reference/introduction/">Documentation</a>
+										</li>
+										<li class="t-footer"><a target="_blank" aria-label="Guides"
+												class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+												href="https://docs.astra.finance/docs">Guides</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="mb-10 last:mb-0 sm:mb-0 sm:space-y-14 md:pl-5 md:pr-6 space-y-10">
+								<div class="footer-grid-col">
+									<h2 class="footer-col-heading">Use Cases</h2>
+									<ul class="list-none space-y-3 sm:space-y-4">
+										<li class="t-footer"><a target="" aria-label="Banking"
+												class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+												href="https://astrafi.com/for-banking/">Banking</a></li>
+										<li class="t-footer"><a target="" aria-label="Transport"
+												class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+												href="https://astrafi.com/for-transport/">Transport</a></li>
+										<li class="t-footer"><a target="" aria-label="BaaS"
+												class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+												href="https://astrafi.com/for-baas/">BaaS</a></li>
+										<li class="t-footer"><a target="" aria-label="SaaS"
+												class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+												href="https://astrafi.com/for-saas/">SaaS</a></li>
+										<li class="t-footer"><a target="" aria-label="Marketplace"
+												class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+												href="https://astrafi.com/for-marketplaces/">Marketplace</a></li>
+										<li class="t-footer"><a target="" aria-label="Payroll"
+												class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+												href="https://astrafi.com/for-payroll/">Payroll</a></li>
+										<li class="t-footer"><a target="" aria-label="Lending"
+												class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+												href="https://astrafi.com/for-lending/">Lending</a></li>
+										<li class="t-footer"><a target="" aria-label="Investing"
+												class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+												href="https://astrafi.com/for-investing/">Investing</a></li>
+										<li class="t-footer"><a target="" aria-label="Crypto"
+												class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+												href="https://astrafi.com/for-crypto/">Crypto</a></li>
+									</ul>
+								</div>
+							</div>
+							<div
+								class="mb-10 last:mb-0 sm:mb-0 sm:space-y-14 md:pl-5 md:pr-6 col-span-2 grid grid-cols-2 gap-x-8 sm:col-span-1 sm:block">
+								<div class="footer-grid-col">
+									<h2 class="footer-col-heading">Resources</h2>
+									<ul class="list-none space-y-3 sm:space-y-4">
+										<li class="t-footer"><a target="" aria-label="Customers"
+												class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+												href="https://astrafi.com/customers/">Customers</a></li>
+										<li class="t-footer"><a target="" aria-label="Blog"
+												class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+												href="https://astrafi.com/blog/?category=blog">Blog</a></li>
+										<li class="t-footer"><a target="" aria-label="Guides"
+												class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+												href="https://astrafi.com/blog/?category=guide">Guides</a></li>
+										<li class="t-footer"><a target="" aria-label="News"
+												class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+												href="https://astrafi.com/blog/?category=news">News</a></li>
+									</ul>
+								</div>
+								<div class="footer-grid-col">
+									<h2 class="footer-col-heading">Company</h2>
+									<ul class="list-none space-y-3 sm:space-y-4">
+										<li class="t-footer"><a target="" aria-label="About"
+												class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+												href="https://astrafi.com/about/">About</a></li>
+										<li class="t-footer"><a target="" aria-label="Careers"
+												class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+												href="https://astrafi.com/careers/">Careers</a></li>
+										<li class="t-footer"><a target="" aria-label="Contact"
+												class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+												href="https://astrafi.com/contact/">Contact</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="mt-24 flex flex-col items-center justify-between space-y-4 md:mt-40 lg:flex-row lg:space-y-0">
+						<p class="t-footer-small text-white/70">© Astra Inc. All Rights
+							Reserved.</p>
+						<ul
+							class="flex list-none flex-col gap-2.5 text-center sm:flex-row sm:gap-5 sm:gap-7 sm:text-left">
+							<li class="t-footer-small"><a target="" aria-label="Privacy Policy"
+									class="inline-block cursor-pointer text-white/70 underline decoration-1 underline-offset-2 transition-colors duration-200 hover:text-white sm:underline-offset-4"
+									href="https://astrafi.com/privacy/">Privacy Policy</a></li>
+							<li class="t-footer-small"><a target="" aria-label="Terms"
+									class="inline-block cursor-pointer text-white/70 underline decoration-1 underline-offset-2 transition-colors duration-200 hover:text-white sm:underline-offset-4"
+									href="https://astrafi.com/terms/">Terms</a></li>
+							<li class="t-footer-small"><a target="" aria-label="Developer Policy"
+									class="inline-block cursor-pointer text-white/70 underline decoration-1 underline-offset-2 transition-colors duration-200 hover:text-white sm:underline-offset-4"
+									href="https://astrafi.com/developer-policy/">Developer Policy</a></li>
+							<li class="t-footer-small"><a target="" aria-label="Developer Terms"
+									class="inline-block cursor-pointer text-white/70 underline decoration-1 underline-offset-2 transition-colors duration-200 hover:text-white sm:underline-offset-4"
+									href="https://astrafi.com/developer-terms/">Developer Terms</a></li>
+							<li class="t-footer-small"><button type="button" id="termly-consent-preferences"
+									class="inline-block cursor-pointer text-white/70 underline decoration-1 underline-offset-2 transition-colors duration-200 hover:text-white sm:underline-offset-4">Do
+									not sell my personal information</button></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+
+	<script id="gtm-script" data-nscript="lazyOnload">
+		(function (w, d, s, l, i) {
+			w[l] = w[l] || []; w[l].push({
+				'gtm.start':
+					new Date().getTime(), event: 'gtm.js'
+			}); var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-NQJ4HZF');
+	</script>
+	<script type="text/javascript"
+		id="">!function (b, e, f, g, a, c, d) { b.fbq || (a = b.fbq = function () { a.callMethod ? a.callMethod.apply(a, arguments) : a.queue.push(arguments) }, b._fbq || (b._fbq = a), a.push = a, a.loaded = !0, a.version = "2.0", a.queue = [], c = e.createElement(f), c.async = !0, c.src = g, d = e.getElementsByTagName(f)[0], d.parentNode.insertBefore(c, d)) }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js"); fbq("init", "235777953970267"); fbq("track", "PageView");</script>
+	<noscript><img height="1" width="1" style="display:none"
+			src="https://www.facebook.com/tr?id=235777953970267&amp;ev=PageView&amp;noscript=1"></noscript><iframe
+		allow="join-ad-interest-group" data-tagging-id="G-WMV4WGKFBF" data-load-time="1713502340126" height="0"
+		width="0" src="./assets/rul.html"
+		style="display: none; visibility: hidden;"></iframe>
+</body>
+
+</html>

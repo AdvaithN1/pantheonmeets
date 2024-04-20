@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    cursor: none;
+  }
+  
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: none;
+  }
+  
+  #canvas {
+    cursor: none;
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 1000vh;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+  }
+  
+  div {
+    cursor: none;
+    display: flex;
+  }
+  
+  html {
+    cursor: none;
+    z-index: -1000;
+    height: 100%;
+    width: 100%;
+    background-color: #080c10;
+  }
+  /*
+  #glow {
+    cursor: none;
+    position: fixed;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: screen;
+    background-image: linear-gradient(#00000000, #0a1110c4);
+  }*/
+  
+  
+  /* FONTS */
+  
+  @font-face {
+    font-family: "URW Jay Gothic W01 Light";
+    src: url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.eot");
+    src: url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.svg#URW Jay Gothic W01 Light")format("svg");
+  }
+  
+  @font-face {
+    font-family: "Monte Stella Trial Light";
+    src: url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.eot");
+    src: url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.svg#Monte Stella Trial Light")format("svg");
+  }
+  
+  @font-face {
+    font-family: "FSP DEMO - Bebas Neue Pro Light";
+    src: url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.eot");
+    src: url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.svg#FSP DEMO - Bebas Neue Pro Light")format("svg");
+  }
+
+#title {
+  color: #E6FFFB;
+  font-family: "URW Jay Gothic W01 Light";
+  font-size: 180px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  margin: auto;
+  opacity: 0;
+}
+
+#desc {
+  z-index: 99;
+  font-family: "Monte Stella Trial Light";
+  font-size: 60px;
+  color: #91B8BE;
+  position: absolute;
+  top: 180px;
+  opacity: 0;
+}
+
+.img-class {
+  width: 800px;
+  height: 500px;
+  position: absolute;
+  overflow: hidden;
+  border-radius: 7%;
+
+  top: 250px;
+  left: 50px;
+}
+
+select {
+
+  padding: 8px 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+}
+
+#testing-img {
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  background-image: url("testingImg.png");
+}
+
+#ASL {
+  width: 400px;
+  height: 630px;
+  border: 10px solid #1c313c;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 5px;
+  text-align: left;
+
+  font-family: "Monte Stella Trial Light";
+  font-size: 35px;
+  color: #91B8BE;
+
+  position: absolute;
+  top: 415px;
+  left: 1100px;
+}
+
+  #videoElement {
+    width: 60%;
+    border-radius: 20px;
+    position: absolute;
+    top: 300px;
+    left: 50px;
+  }
+
+  #hands {
+    width: 60%;
+    border-radius: 20px;
+    position: absolute;
+    top: 300px;
+    left: 50px;
+  }
+
+.videoClass {
+  width: 100%;
+  
+}
+
+  .videoInner {
+    width: 50%;
+    margin: auto;
+  }
+
+
+  input {
+    z-index: 150;
+    width: 400px;
+
+    position: absolute;
+    right: 203px;
+    top: 300px;
+
+  }
+
+  .value-class {
+    position: relative;
+    top: -150px;
+    left: -25px;
+  }
+
+  #value {
+    color: #91d1df;
+    font-family: "Monte Stella Trial Light";
+    font-size: 30px;
+    position: absolute;
+    text-align: left;
+    top: 470px;
+  }
+
+  #value-desc {
+    position: absolute;
+    width: 410px;
+    height: 30px;
+    border: 3px solid transparent;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 5px;
+    text-align: left;
+
+    top: 490px;
+    left: -20px;
+
+    color: #3a6985;
+    font-family: "FSP DEMO - Bebas Neue Pro Light";
+    font-size: 20px;
+  }
+
+  #language {
+    z-index: 200;
+    position: absolute;
+    left: 100px;
+    top: 200px;
+    width: 200px;
+  }

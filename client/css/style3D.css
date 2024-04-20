@@ -1,0 +1,239 @@
+/*
+* {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    cursor: none;
+  }
+  
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: none;
+  }
+  
+  #canvas {
+    cursor: none;
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 1000vh;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+  }
+  
+  div {
+    cursor: none;
+    display: flex;
+  }*/
+  
+  html {
+    /*cursor: none; FIX THIS LATER*/ 
+    z-index: -1000;
+    height: 100%;
+    width: 100%;
+    background-color: #080c10;
+  }
+  @font-face {
+    font-family: "URW Jay Gothic W01 Light";
+    src: url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.eot");
+    src: url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.svg#URW Jay Gothic W01 Light")format("svg");
+  }
+  
+  @font-face {
+    font-family: "Monte Stella Trial Light";
+    src: url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.eot");
+    src: url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.svg#Monte Stella Trial Light")format("svg");
+  }
+  
+  @font-face {
+    font-family: "FSP DEMO - Bebas Neue Pro Light";
+    src: url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.eot");
+    src: url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.svg#FSP DEMO - Bebas Neue Pro Light")format("svg");
+  }
+
+
+#title {
+    color: #E6FFFB;
+    font-family: "URW Jay Gothic W01 Light";
+    font-size: 180px;
+    text-align: center;
+    top: 0;
+    margin: auto;
+    opacity: 0;
+  }
+  #desc {
+    z-index: 99;
+    text-align: center;
+    margin: auto;
+    font-family: "Monte Stella Trial Light";
+    font-size: 55px;
+    color: #91B8BE;
+    transform: translateY(-20px);
+    opacity: 0;
+    
+  }
+
+  .video-class {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5%;
+}
+
+  iframe {
+    z-index: 30;
+    border: 1px solid black;
+    left: 50px;
+    width: 1100px;
+    height: 700px;
+  }
+
+  /* CUBE 1 */
+  .cube1-class {
+    text-align: right;
+    position: absolute;
+    top: 300px;
+    right: 50px;
+  }
+
+  .glow1-class {
+    text-align: right;
+    position: absolute;
+    top: 300px;
+    right: 50px;
+  }
+
+  #glow1 {
+    z-index: 72;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+
+    color: transparent;
+    mix-blend-mode: screen;
+    background-color: transparent;
+    background-image: radial-gradient(#123445, #071522a7, #000, #000);
+
+    transform: translate(-30px, 180px);
+
+    opacity: 0;
+
+  }
+  #cube1 {
+    z-index: 70;
+    height: 40%;
+    width: 40%;
+
+    opacity: 0;
+    filter: blur(20px);
+
+    transform: translate(60px, 90px);
+  }
+
+  /* CUBE 2 */
+  .cube2-class {
+    text-align: right;
+    position: absolute;
+    top: 320px;
+    right: 170px;
+  }
+
+  .glow2-class {
+    text-align: right;
+    position: absolute;
+    top: 320px;
+    right: 170px;
+  }
+
+  #glow2 {
+    z-index: 76;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+
+    color: transparent;
+    mix-blend-mode: screen;
+    background-color: transparent;
+    background-image: radial-gradient(#123445, #071522a7, #000, #000);
+
+    transform: translate(90px, 80px);
+
+    opacity: 0;
+
+  }
+  #cube2 {
+    z-index: 74;
+    height: 20%;
+    width: 20%;
+
+    opacity: 0;
+    filter: blur(10px);
+
+    transform: translate(130px, 30px);
+  }
+
+
+  /* CUBE 3 */
+  .cube3-class {
+    text-align: right;
+    position: absolute;
+    top: 640px;
+    right: 220px;
+  }
+
+  .glow3-class {
+    text-align: right;
+    position: absolute;
+    top: 640px;
+    right: 220px;
+  }
+
+  #glow3 {
+    z-index: 76;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+
+    color: transparent;
+    mix-blend-mode: screen;
+    background-color: transparent;
+    background-image: radial-gradient(#123445, #071522a7, #000, #000);
+
+    transform: translate(190px, -40px);
+
+    opacity: 0;
+
+  }
+  #cube3 {
+    z-index: 74;
+    height: 10%;
+    width: 10%;
+
+    opacity: 0;
+    filter: blur(10px);
+
+    transform: translate(230px, -70px);
+  }
+  #language {
+    z-index: 200;
+    position: absolute;
+    left: 100px;
+    top: 250px;
+    width: 200px;
+  }

@@ -1,0 +1,566 @@
+* {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  cursor: none;
+}
+
+body {
+  align-items: center;
+  justify-content: center;
+}
+
+#canvas {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 1000vh;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+div {
+  display: flex;
+}
+
+
+html {
+  z-index: -10000000;
+  height: 100%;
+  width: 100%;
+  background-color: #080c10;
+}
+
+#glow {
+  position: fixed;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: screen;
+  background-image: linear-gradient(#00000000, #0a1110c4);
+}
+
+
+/* FONTS */
+
+@font-face {
+  font-family: "URW Jay Gothic W01 Light";
+  src: url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.eot");
+  src: url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.svg#URW Jay Gothic W01 Light")format("svg");
+}
+
+@font-face {
+  font-family: "Monte Stella Trial Light";
+  src: url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.eot");
+  src: url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.svg#Monte Stella Trial Light")format("svg");
+}
+
+@font-face {
+  font-family: "FSP DEMO - Bebas Neue Pro Light";
+  src: url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.eot");
+  src: url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.svg#FSP DEMO - Bebas Neue Pro Light")format("svg");
+}
+
+/* COMPONENTS */
+
+.titles {
+  display: block !important;
+  justify-content: center;
+  text-align: center;
+}
+
+
+#title {
+  z-index: 100;
+  font-family: "URW Jay Gothic W01 Light";
+  font-size: 300px;
+  color: #E6FFFB;
+  position: absolute;
+  top: 100px;
+  opacity: 0;
+
+}
+
+.outDotsContainer {
+  display: block !important;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  position: absolute !important;
+}
+.dotsContainer {
+  display: block !important;
+  justify-content: center;
+  align-items: center;
+  width: 0;
+  margin-left: calc(50% - 390px);
+  position: absolute !important;
+}
+
+.dots {
+  display: block !important;
+  z-index: 47;
+  height: 15px;
+  width: 15px;
+  background-color: #cafffd;
+  border-radius: 15px;
+  position: absolute !important;
+  opacity: 0;
+  transform: translateY(40px); 
+}
+
+
+
+/* spacing 60px */
+
+/* C1*/ 
+
+#dotC1-1 {
+  top: 380px;
+  left: 0px;
+}
+
+#dotC1-2 {
+  top: 380px;
+  left: 60px;
+}
+
+/*
+#dotC1-3 {
+  top: 490px;
+  left: 0px;
+}*/
+
+#dotC1-4 {
+  top: 490px;
+  left: 60px;
+}
+
+/* O1 */
+
+#dotO1-1 {
+  top: 380px;
+  left: 120px;
+}
+
+#dotO1-2 {
+  top: 380px;
+  left: 180px;
+}
+
+#dotO1-3 {
+  top: 490px;
+  left: 120px;
+}
+
+#dotO1-4 {
+  top: 490px;
+  left: 180px;
+}
+
+/* N1*/
+
+#dotN1-1 {
+  top: 380px;
+  left: 240px;
+}
+
+#dotN1-2 {
+  top: 380px;
+  left: 300px;
+}
+
+#dotN1-3 {
+  top: 490px;
+  left: 240px;
+}
+
+#dotN1-4 {
+  top: 490px;
+  left: 300px;
+}
+
+/* N2*/
+
+#dotN2-1 {
+  top: 380px;
+  left: 360px;
+}
+
+#dotN2-2 {
+  top: 380px;
+  left: 420px;
+}
+
+#dotN2-3 {
+  top: 490px;
+  left: 360px;
+}
+
+#dotN2-4 {
+  top: 490px;
+  left: 420px;
+}
+
+/* E1*/
+
+#dotE1-1 {
+  top: 380px;
+  left: 480px;
+}
+
+#dotE1-2 {
+  top: 380px;
+  left: 540px;
+}
+
+#dotE1-3 {
+  top: 490px;
+  left: 480px;
+}
+
+#dotE1-4 {
+  top: 490px;
+  left: 540px;
+}
+
+/* C2*/
+
+#dotC2-1 {
+  top: 380px;
+  left: 600px;
+}
+
+#dotC2-2 {
+  top: 380px;
+  left: 660px;
+}
+
+#dotC2-3 {
+  top: 490px;
+  left: 600px;
+}
+
+#dotC2-4 {
+  top: 490px;
+  left: 660px;
+}
+
+/* T1*/
+
+#dotT1-1 {
+  top: 380px;
+  left: 720px;
+}
+
+#dotT1-2 {
+  top: 380px;
+  left: 780px;
+}
+/*
+#dotT1-3 {
+  top: 490px;
+  left: 780px;
+}*/
+
+
+#dotT1-4 {
+  top: 490px;
+  left: 720px;
+}
+
+/*
+#sub {
+  z-index: 99;
+  font-family: "Monte Stella Trial Light";
+  font-size: 60px;
+  color: #91B8BE;
+  position: absolute;
+  top: 530px;
+  opacity: 0;
+}*/
+
+.centerContainer {
+  top: 600px;
+  justify-content: center;
+  width: 100%;
+  background-color: transparent;
+  position: absolute;
+  align-items: center;
+}
+
+.buttonContainer {
+  width: 150px;
+}
+
+.centerContainer2 {
+  display: flex !important;
+  top: 700px;
+  justify-content: center;
+  width: 100%;
+  background-color: transparent;
+  position: absolute;
+  align-items: center;
+  text-align: center;
+
+  opacity: 0;
+}
+
+.ourProjContainer {
+  width: 250px;
+  min-height: 100vh;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  flex-direction: column;
+}
+
+#ourprojects {
+  z-index: 600;
+  font-family: "FSP DEMO - Bebas Neue Pro Light";
+  font-size: 40px;
+  color: #46FFF8;
+  position: fixed;
+  bottom: -200px;
+}
+
+#arrow {
+  z-index: 300;
+  width: 70px;
+  height: 70px;
+  position: fixed;
+  bottom: 20px;
+}
+
+.hitboxContainer {
+  position: absolute;
+  bottom: -300px;
+}
+#hitbox1 {
+  background-color: transparent;
+  width: 100%;
+  height: 50px;
+}
+
+.hitboxContainer2 {
+  position: absolute;
+  top: 2000px;
+}
+#hitbox2 {
+  background-color: transparent;
+  width: 100%;
+  height: 50px;
+}
+
+.img-class {
+  width: 800px;
+  height: 500px;
+  position: absolute;
+  overflow: hidden;
+  border-radius: 5%;
+
+  position: absolute;
+  right: 100px;
+  top: 1235px;
+  
+}
+#projImg {
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  background-image: url("placeholderImg.png");
+}
+
+.descContainer {
+  position: absolute;
+  width: 750px;
+  left: 50px;
+}
+#proj1 {
+  font-family: "URW Jay Gothic W01 Light";
+  font-size: 150px;
+  color: #E6FFFB;
+  position: absolute;
+  top: 1800px;
+}
+#desc {
+  font-family: "Monte Stella Trial Light";
+  font-size: 60px;
+  color: #91B8BE;
+  position: absolute;
+  
+  top: 1950px;
+}
+
+
+
+.img-class2 {
+  width: 800px;
+  height: 500px;
+  position: absolute;
+  overflow: hidden;
+  border-radius: 5%;
+
+  position: absolute;
+  right: 100px;
+  top: 2020px;
+  
+}
+#projImg2 {
+  z-index: 10;
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  background-image: url("IMG2.png");
+}
+
+.descContainer2 {
+  position: absolute;
+  width: 750px;
+  left: 50px;
+}
+#proj2 {
+  font-family: "URW Jay Gothic W01 Light";
+  font-size: 130px;
+  color: #E6FFFB;
+  position: absolute;
+  top: 2600px;
+}
+#desc2 {
+  font-family: "Monte Stella Trial Light";
+  font-size: 50px;
+  color: #91B8BE;
+  position: absolute;
+  
+  top: 2750px;
+}
+
+.buttonContainer {
+  position: absolute;
+  left: 40px;
+  top: 1680px;
+  width: 320px;
+}
+
+.button {
+  position: relative;
+  font-family: "URW Jay Gothic W01 Light";
+  padding: 12px 30px;
+  font-size: 1.5rem;
+  color: var(--color);
+  border: 2px solid var(--color);
+  border-radius: 4px;
+  mix-blend-mode: screen;
+  text-shadow: 0 0 10px var(--glow);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  transition: 0.5s;
+  z-index: 1;
+  left: 0px;
+}
+
+.button:hover {
+  color: #fff;
+  border: 2px solid #fff;
+  mix-blend-mode: screen;
+  box-shadow: 0 0 0px var(--glow);
+}
+
+.buttonContainer2 {
+  width: 150px;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: -1;
+  transform: scale(1);
+  transition: 0.3s;
+}
+
+.button:hover::before {
+  transform: scale(1);
+  transition-delay: 0s;
+  mix-blend-mode: screen;
+  box-shadow: 0 0 10px var(--glow),
+    0 0 30px var(--glow2),
+    0 0 60px var(--glow2);
+}
+
+
+.button2 {
+  position: relative;
+  font-family: "URW Jay Gothic W01 Light";
+  padding: 12px 30px;
+  font-size: 1.5rem;
+  color: var(--color);
+  border: 2px solid var(--color);
+  border-radius: 4px;
+  mix-blend-mode: screen;
+  text-shadow: 0 0 10px var(--glow);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  transition: 0.5s;
+  z-index: 1;
+  left: 0px;
+}
+
+.button2:hover {
+  color: #fff;
+  border: 2px solid #fff;
+  mix-blend-mode: screen;
+  box-shadow: 0 0 0px var(--glow);
+}
+
+.button2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: -1;
+  transform: scale(1);
+  transition: 0.3s;
+}
+
+.button2:hover::before {
+  transform: scale(1);
+  transition-delay: 0s;
+  mix-blend-mode: screen;
+  box-shadow: 0 0 10px var(--glow),
+    0 0 30px var(--glow2),
+    0 0 60px var(--glow2);
+}
+
+.buttonContainer3 {
+  position: absolute;
+  left: 40px;
+  top: 2400px;
+  width: 390px;
+}
