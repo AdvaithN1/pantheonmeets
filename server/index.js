@@ -3,6 +3,12 @@ const path = require('path');
 const dotenv = require('dotenv'); 
 dotenv.config();
 
+const fs = require('fs');
+const {spawn} = require('child_process');
+const WebSocket = require('ws');
+
+const http = require('http');
+
 const APP_ID = process.env.APP_ID;
 const APP_CERTIFICATE = process.env.APP_CERTIFICATE;
 
@@ -11,8 +17,6 @@ const app = express();
 
 const publicPath = path.join(__dirname, '..', 'client');
 app.use(express.static(publicPath, { index: 'index.html' }));
-
-// const server = http.createServer((req, res) => {})
 
 app.get('/meeting/:param', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'client', 'meeting.html'));
@@ -23,6 +27,7 @@ app.get('/', (req, res) => {
 })
 
 const PORT = process.env.PORT || 3002;
+
 
 const cors = require('cors');
 const {RtcTokenBuilder, RtcRole, RtmTokenBuilder, RtmRole} = require('agora-access-token');
@@ -171,5 +176,7 @@ app.get('*', function(req, res){
 });
 
 // const httpServer = app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+
+// const wss = new WebSocket.Server({ noserver: true });
 
 module.exports = app

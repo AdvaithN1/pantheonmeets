@@ -1,7 +1,7 @@
 body{
-    background:#0F2027;
-    background:-webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027) ;
-    background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+    background:#1e282c;
+    /*background:-webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027) ;*/
+    background: linear-gradient(to right, #1e282c, #12181a);
 }
 
 #output_canvas{
@@ -72,6 +72,11 @@ body{
     url("https://db.onlinewebfonts.com/t/feab4f015f183ad38338781e0369490d.svg#DINOT-Bold")format("svg");
 }
 
+h2 {
+    font-family: "DINOT-Regular";
+    color: white;
+}
+
 #video-streams{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
@@ -83,9 +88,9 @@ body{
 .video-container{
     position: relative;
     max-height: 100%;
-    border: 7px solid cadetblue;
-    border-radius: 5px;
-    background-color: #203A49;
+    border: 7px solid #3D5154;
+    border-radius: 10px;
+    background-color: #1E282C;
     width: calc(100% - 25px); /* Adjust video area width */
     float: left; /* Make video area float left */
 }
@@ -104,19 +109,22 @@ body{
 }
 
 button{
+    font-family: "DINOT-Regular";
     border: none;
-    background-color: cadetblue;
-    color:#fff;
+    background-color: #3D5154;
+    color: #EEEEEE;
     padding: 10px 20px;
     font-size: 16px;
     margin: 2px;
     cursor: pointer;
+    border-radius: 7px;
+    border: 3px solid transparent;
 }
 
 #stream-controls{
     display: none;
     justify-content: center;
-    margin-top:0.5em;
+    margin-top: 0.5em;
     position: absolute;
     z-index: 100;
 }
@@ -148,19 +156,28 @@ button{
     font-family: "DINOT-Bold";
     font-size: 40px;
     color: #fff;
+
+    opacity: 0;
 }
 #language {
     z-index: 500;
+    font-family: "DINOT-Regular";
     position: relative;
-    width: 110px;
-    left: 180px;
+    width: 120px;
+    height: 20px;
+    left: 170px;
     top: -35px;
+    color: #aed3e8;
+    background-color: #253339;
+    border: 0px solid transparent;
+
+    opacity: 0;
   }
 .capContainer2 {
-    overflow-y: scroll;
+    overflow-y: auto;
     max-height: 93%;
     display: flex;
-    flex-direction: column-reverse;
+    /*flex-direction: column-reverse;*/
 }
 #captions {
     font-family: "DINOT-Regular";
@@ -170,6 +187,23 @@ button{
     height: 100%;
     
 }
+#chatbox::placeholder {
+    color: #91b8c2;
+}
+
+#chatbox {
+    position: fixed;
+    bottom: 10px;
+    width: 16%;
+    height: 20px;
+    margin-right: 10px;
+
+    font-family: "DINOT-Regular";
+    background-color: #3D5154;
+    color: white;
+
+    opacity: 0;
+}
 
 ::-webkit-scrollbar {
     width: 12px;
@@ -177,17 +211,17 @@ button{
 }
     
 ::-webkit-scrollbar-track {
-    border: 0.5px solid #88fff9;
-    border-radius: 0px;
+    border: 0.5px solid #5c8288;
+    border-radius: 10px;
 }
     
 ::-webkit-scrollbar-thumb {
-    background: #88fff9;  
-    border-radius: 0px;
+    background: #5c8288;  
+    border-radius: 10px;
 }
     
 ::-webkit-scrollbar-thumb:hover {
-    background: #88fff9;  
+    background: #5c8288;  
 }
 
 #login-form {
@@ -195,27 +229,34 @@ button{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #3D5154;
     color: white;
     padding: 20px;
     text-align: center;
+    border-radius: 20px;
 }
-
+#login-form::placeholder {
+    font-family: "DINOT-Regular";
+}
 #login-form input {
     margin-bottom: 10px;
     padding: 10px;
 }
 
 #join-meeting-btn {
-    background-color: cadetblue;
-    color: white;
+    font-family: "DINOT-Bold";
+    background-color: #38bccb;
+    /*background: linear-gradient(#53dacf, #3099ab);*/
+    color: #222A30;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
+    border-radius: 10px;
 }
 
 .user-uid {
     position: relative;  
+    font-family: "DINOT-Regular";
     z-index: 10;
     color: white;
     font-size: 14px;

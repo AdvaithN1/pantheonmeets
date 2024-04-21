@@ -87,6 +87,9 @@ var currentlang = "en-US";
 
 document.getElementById('join-meeting-btn').addEventListener('click', () => {
     username = document.getElementById('username').value;
+    if(username==""){
+        return
+    }
     // Hide the login form and show the video area
     document.getElementById('login-form').style.display = 'none';
     document.getElementById('stream-wrapper').style.display = 'block';
@@ -209,6 +212,11 @@ async function updateCaptionsCustom(newCaptions) {
 function updateExternalCaptions(user, caps){
     const captionsContainer = document.getElementById("captions");
     captionsContainer.innerText = captionsContainer.innerText+"\n"+caps;
+
+    if ((user == "Yufan Wang" || user == "Advaith")&& (caps == "okay" || caps == "Yufan Wang: okay")) {
+        var audioPlayer = document.getElementById("audioPlayer");
+        audioPlayer.play();
+    }
 
     captionsContainer.innerHTML = captionsContainer.innerHTML + "\n\n<br>"+`${username}: ${newCaptions}</br>\n`;
     
@@ -447,6 +455,16 @@ let handleUserUnpublished = async (user, mediaType) => {
 
 let leaveAndRemoveLocalStream = async () => {
     stopSpeechRecognition();
+    const lan = document.getElementById('language');
+    const capsT = document.getElementById('captionTitle');
+    const chat = document.getElementById('chatbox');
+    const caps = document.getElementById('captions');
+    const capsC = document.getElementById('captions-column');
+    lan.style.opacity = '0';
+    caps.style.opacity = '0';
+    capsC.style.opacity = '0';
+    capsT.style.opacity = '0';
+    chat.style.opacity = '0';
 
     if(isScreenShared){
         toggleScreenShare();
@@ -468,9 +486,12 @@ let leaveAndRemoveLocalStream = async () => {
         await channel.leave()
         await signalingEngine.logout()
     }
+    
     catch(err){
         console.error(err)
     }
+
+    remoteUsers = []
 
     // document.getElementById('join-btn').style.display = 'block'
     document.getElementById('stream-controls').style.display = 'none'
@@ -483,14 +504,18 @@ let leaveAndRemoveLocalStream = async () => {
 let toggleMic = async (e) => {
     if (localTracks[0].muted){
         await localTracks[0].setMuted(false)
-        e.target.innerText = 'Mic on'
-        e.target.style.backgroundColor = 'cadetblue'
+        e.target.innerText = 'Mic On'
+        e.target.style.backgroundColor = '#3D5154'
+        e.target.style.border = '3px solid transparent'
+        e.target.style.color = 'white'
 
         startSpeechRecognition();
     }else{
         await localTracks[0].setMuted(true)
-        e.target.innerText = 'Mic off'
-        e.target.style.backgroundColor = '#EE4B2B'
+        e.target.innerText = 'Mic Off'
+        e.target.style.backgroundColor = 'transparent'
+        e.target.style.border = '3px solid #EE4B2B'
+        e.target.style.color = '#EE4B2B';
         // toggleCamera()
         // toggleCamera()
 
@@ -502,12 +527,16 @@ let toggleCamera = async (e) => {
     if(localTracks[1].muted){
         await localTracks[1].setMuted(false)
         e.target.innerText = 'Camera On'
-        e.target.style.backgroundColor = 'cadetblue'
+        e.target.style.backgroundColor = '#3D5154'
+        e.target.style.border = '3px solid transparent'
+        e.target.style.color = 'white'
     }
     else{
         await localTracks[1].setMuted(true)
         e.target.innerText = 'Camera Off'
-        e.target.style.backgroundColor = '#EE4B2B'
+        e.target.style.backgroundColor = 'transparent'
+        e.target.style.border = '3px solid #EE4B2B'
+        e.target.style.color = '#EE4B2B';
     }
 }
 
@@ -524,7 +553,9 @@ let toggleScreenShare = async (e) => {
         isScreenShared = false;
 
         e.target.innerText = 'Screenshare';
-        e.target.style.backgroundColor = 'cadetblue';
+        e.target.style.backgroundColor = '#3D5154'
+        e.target.style.border = '3px solid transparent'
+        e.target.style.color = 'white'
         
         localTracks = await AgoraRTC.createMicrophoneAndCameraTracks();
         // chrome
@@ -570,7 +601,9 @@ let toggleScreenShare = async (e) => {
         isScreenShared = true
         
         e.target.innerText = 'Stop Screenshare'
-        e.target.style.backgroundColor = 'cadetblue'
+        e.target.style.backgroundColor = 'transparent'
+        e.target.style.border = '3px solid #EE4B2B'
+        e.target.style.color = '#EE4B2B';
         
         // for(let i = 0; localTracks.length > i; i++){
         //     localTracks[i].stop()
@@ -617,11 +650,14 @@ var color = "#000000";
 
 // Get the position of the mouse relative to the canvas
 function getMousePos(canvasDom, mouseEvent) {
-    var rect = canvasDom.getBoundingClientRect();
+    var rect = canvasDom.getBoundingClientRect(); // rect.width, rect.height
+    var totx = window.screenX;
+    var toty = window.screenY;
     return {
         x: mouseEvent.clientX - rect.left,
         y: mouseEvent.clientY - rect.top
     };
+    
 }
 
 // Set up mouse events for drawing
@@ -709,7 +745,10 @@ function changeColor() {
 let toggleWhiteboard = async (e) => {
     if(whiteboardOpen){
         e.target.innerText = 'Start Whiteboard';
-        e.target.style.backgroundColor = 'cadetblue';
+        e.target.style.backgroundColor = '#3D5154'
+        e.target.style.border = '3px solid transparent'
+        e.target.style.color = 'white'
+        
 
         console.error("WHITEBOARD CLOSED: "+dataUrl)
         if(externalWhiteboardTrigger){
@@ -735,7 +774,9 @@ let toggleWhiteboard = async (e) => {
             updateCaptionsCustom("Whiteboard opened by "+username)
         }
         e.target.innerText = 'Stop Whiteboard'
-        e.target.style.backgroundColor = 'cadetblue'
+        e.target.style.backgroundColor = 'transparent'
+        e.target.style.border = '3px solid #EE4B2B'
+        e.target.style.color = '#EE4B2B';
 
         document.getElementById('erase-btn').style.display = 'flex';
         document.getElementById('save-btn').style.display = 'flex';
@@ -847,18 +888,22 @@ let toggleErase = async (e) => {
     if(erasing){
         stopErasing();
         e.target.innerText = 'Start Erasing';
-        e.target.style.backgroundColor = 'cadetblue';
+        e.target.style.backgroundColor = '#3D5154'
+        e.target.style.border = '3px solid transparent'
+        e.target.style.color = 'white'
     }
     else{
         startErasing();
         e.target.innerText = 'Stop Erasing';
-        e.target.style.backgroundColor = 'cadetblue';
+        e.target.style.backgroundColor = 'transparent'
+        e.target.style.border = '3px solid #EE4B2B'
+        e.target.style.color = '#EE4B2B';
     }
 }
 
 function sendWhiteboard () {
-    for (const userId in remoteUsers) {
-        if(whiteboardArr.length > 0){
+    if(whiteboardArr.length > 0){
+        for (const userId in remoteUsers) {
             console.error("ATTEMPTING TO SEND WHITEBOARD INFO OF LENGTH "+whiteboardArr.length)
             channel.sendMessage({text: JSON.stringify({"whiteboardArr": JSON.stringify(whiteboardArr)}), description: 'Coordinates where drawing is taking place.', messageType: 'TEXT', rawMessage: undefined})
         }
@@ -869,7 +914,7 @@ function sendWhiteboard () {
 var interval = setInterval(function () { 
     sendWhiteboard(); 
     // console.error("UPDATING WHITEBOARD IN SET INTERVAL")
-}, 110);
+}, 1);
 
 
 
@@ -890,7 +935,9 @@ let saveWhiteboard = async (e) => {
 
 
 function drawConnectors(recogCtx, landmarks, options){
-    // console.error("DRAWING CONNECTORS")
+
+    
+    console.error("DRAWING CONNECTORS in DRAWCONNECTORS")
     var fro = landmarks[0];
     // console.error(fro)
     for(var i = 1; i<=4; i++){ // Drawing thumb
@@ -898,6 +945,19 @@ function drawConnectors(recogCtx, landmarks, options){
         t=landmarks[i];
         drawLine(recogCtx, fro, t, options)
     }
+
+    // var data_aux = [];
+    // for (let landmark in landmarks) {
+    //     x_.append(landmark[0]);
+    //     y_.append(landmark[1]);
+    // }
+
+    // for (let landmark in landmarks) {
+    //     data_aux.append(landmark[0] - min(x_));
+    //     data_aux.append(landmark[1] - min(y_));
+    // }
+
+    
 
     drawLine(recogCtx, landmarks[0], landmarks[5], options) // Drawing pointer finger
     drawLine(recogCtx, landmarks[5], landmarks[6], options)
