@@ -1,5 +1,7 @@
 let APP_ID = ""
 
+var socket;
+
 // import {
 //     HandLandmarker,
 //     FilesetResolver
@@ -38,6 +40,8 @@ import('./tasks-vision/vision_bundle.mjs').then(x => {
 
 
 const client = AgoraRTC.createClient({mode:'rtc', codec:'vp8'});
+
+
 var signalingEngine = null;
 let channel;
 
@@ -84,6 +88,51 @@ var langDict = {
 }
 
 var currentlang = "en-US";
+
+
+// Pusher.logToConsole = true;
+// var pusher;
+// var pusherChan;
+
+// async function initiatePusher(){
+//     pusher = await new Pusher('290cff21990128325751', {
+//         cluster: 'us3',
+//         channelAuthorization: { endpoint: "/pusher/auth"}  
+//       });
+
+//     pusherChan = await pusher.subscribe('presence-my-channel');
+
+//     await pusherChan.bind('client-my-event', function(data) {
+//         console.error(JSON.stringify(data));
+//     });
+
+//     setInterval(function() {
+//         pusherChan.trigger('client-my-event', {channel: channel, text: 'message sent FROM CLIENT HERE'});
+//     }, 1000);
+// }
+
+// initiatePusher();
+    //         pusherChan.trigger('client-my-event', {channel: channel, text: 'message sent FROM CLIENT HERE'});
+    //     }, 1000);
+
+setInterval(function() {
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "/recog", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("dat", "hello world");
+    
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                console.log(xhr.responseText); // Print received data
+            } else {
+                console.error('Error:', xhr.responseText);
+            }
+        }
+    };
+    
+    xhr.send(JSON.stringify({}));
+}, 1000);
 
 document.getElementById('join-meeting-btn').addEventListener('click', () => {
     username = document.getElementById('username').value;

@@ -3,11 +3,6 @@ const path = require('path');
 const dotenv = require('dotenv'); 
 dotenv.config();
 
-const fs = require('fs');
-const {spawn} = require('child_process');
-const WebSocket = require('ws');
-
-const http = require('http');
 
 const APP_ID = process.env.APP_ID;
 const APP_CERTIFICATE = process.env.APP_CERTIFICATE;
@@ -175,8 +170,60 @@ app.get('*', function(req, res){
     res.status(404).sendFile(path.join(__dirname, '..', 'client', 'error.html'));
 });
 
-// const httpServer = app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-// const wss = new WebSocket.Server({ noserver: true });
+
+// wss.on('connection', function connection(ws) {
+//   // console.log('WebSocket connection established');
+
+//   ws.on('message', function incoming(message) {
+//       // console.log('Received video data:', message);
+//       // MESSAGE IS BASE 64 ENCODED JPEG
+//       message = message.toString();
+      
+//       python.stdin.write(message.trim()+"\n"); 
+
+//       // var dataToSend;
+//       // python.stdout.on('data', function (data) {
+//       //     dataToSend = data.toString();
+//       //     // console.log(new Date().getTime())
+//       //     ws.send(dataToSend);
+//       // });
+//   });
+//   ws.on('close', function() {
+//       // console.log('WebSocket connection closed');
+//   });
+// });
+
+// python.stdout.on('data', function (data) {
+//   const dataToSend = data.toString();
+//   // Send the data to WebSocket clients
+//   wss.clients.forEach(client => {
+//       // console.log(dataToSend)
+      
+//       // if (isPrinted<3){
+//       //     console.log(dataToSend);
+//       //     isPrinted+=1;
+//       // }
+//       client.send(dataToSend);
+//   });
+// });
+
+// python.stderr.on('data', function (data) {
+//   console.error('Error from python script:', data.toString());
+// });
+
+// app.post("/recog", function (req, res) {
+//   const dat = req.headers.dat;
+//   console.error("Processing Node Data: "+dat+"body: "+req.body);
+//   python.stdin.write(dat.trim()+"\n"); 
+//   python.stdout.on('data', function (data) {
+//     console.error("RECEIVED PROCESSED DATA")
+//     console.error("Data: "+data)
+//     // dataToSend = data.toString();
+//     // console.log(new Date().getTime())
+//     res.send(data);
+//   })
+// });
+
 
 module.exports = app
