@@ -22,14 +22,18 @@
 <body>
     <title>PantheonMEETS - In a meeting</title>
 
+    <!--
+        
     
-
     <div id="login-form">
-        <h2>Enter Your Username</h2>
+        <h2>Loading... (Don't enter anything)</h2>
         <input type="text" id="username" placeholder="Username" required>
-        <!-- <input type="text" id="meetingId" placeholder="Meeting ID" required> -->
+        <!- <input type="text" id="meetingId" placeholder="Meeting ID" required> ->
         <button id="join-meeting-btn">Join</button>
-    </div>
+    </div>-->
+    <audio id="audioPlayer" src="../callJoin.mp3" style="display: none;"></audio>
+    <audio id="audioPlayerLeave" src="../leavemet.mp3" style="display: none;"></audio>
+
 
     <div id="stream-wrapper">
         <!-- <button id="join-btn">Join Stream</button> -->
@@ -66,6 +70,7 @@
             </div>
             <input id="chatbox" placeholder="Message the meeting..."/>
 
+            
             <script>
                 const usernameInput = document.getElementById('username');
                 const btn = document.getElementById('join-meeting-btn');
@@ -74,6 +79,7 @@
                 const capsT = document.getElementById('captionTitle');
                 const chat = document.getElementById('chatbox');
                 
+                /*
                 btn.addEventListener("click", function() {
                     console.log("-" + usernameInput + "-");
                     if ((usernameInput.value.trim() == "") == false) { // Checks if button is pressed and username is valid (not empty)
@@ -82,7 +88,7 @@
                         chat.style.opacity = '1';
                     }
                     
-                });
+                });*/
 
 
             </script>
@@ -120,6 +126,7 @@
                 tl.to('#login-form', {y: '-=100px', ease: "expo.out", duration: 1.0}, "-=1.0");
             });
         </script>
+
 
         
 

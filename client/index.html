@@ -20,6 +20,19 @@
 		data-n-css=""></noscript>
 
     	<style>
+
+			#meetingID {
+				/*position: absolute;*/
+				transform: translateY(-10px);
+			}
+
+			#nxtButton {
+				transform: translateY(20px);
+			}
+
+			#nxtButton2 {
+				opacity: 0;
+			}
 			.termly-styles-module-primary-33c456 {
 				color: #4672ff
 			}
@@ -1228,13 +1241,11 @@
 								class="nav-link inline-block cursor-pointer border-b-2 border-transparent py-2 text-white transition-colors duration-200 hover:border-[#A1A1A1] ">Resources</span>
 						</li>
 					</ul>
-					<div class="hidden gap-x-2.5 sm:gap-x-3 lg:flex"><a target="_blank" class="secondary-button"
-							href="">
-							<div class="btn group relative  bg-transparent text-white "><span class="relative">Log
-									in</span></div>
-						</a><a target="" class="primary-button" href="">
+					<div class="hidden gap-x-2.5 sm:gap-x-3 lg:flex"><a target="_blank" class="secondary-button" href="/auth/google" id="loginbtnstuff">
+							<div class="btn group relative  bg-transparent text-white"><span class="relative" id="logintxt">Sign Up or Log In</span></div>
+						</a><a target="" class="primary-button" id="signoutlink">
 							<div class="btn group relative  btn-black btn-shadow btn-hover-glow bg-gradient-to-r from-midnight to-[#041E1A] text-ice"><span
-									class="relative" style="color:white">Start now</span><span
+									class="relative" style="color:white" id="signout">Sign Out</span><span
 									class="absolute top-1/2 right-4 -translate-y-1/2 transition-all duration-200 group-hover:right-3.5 "><svg
 										width="7" height="10" viewBox="0 0 7 10" fill="none"
 										xmlns="http://www.w3.org/2000/svg">
@@ -1273,17 +1284,17 @@
 								<div class="w-auto pt-2">
 									<div class="flex space-x-3 sm:space-x-4">
                                         <div class="inline-block w-full md:w-auto login-form" style="padding-right: 0px;">
-                                            <input class=" !border-textarea" style=" height:100%; width:100%; display:block; font-size: 0.875rem" type="text" id="meetingID" placeholder="Enter an existing meeting ID or create a new meeting" required>
+											<input class=" !border-textarea" style=" height:100%; width:100%; display:block; font-size: 0.875rem" type="text" id="usernameInp" placeholder="Enter your meeting username" required>
+
+
                                             <!-- <input type="text" id="meetingId" placeholder="Meeting ID" required> -->
-                                    
-                                            
-                                            
+											
                                         </div>
 										<div><a target="" class="inline-block w-full md:w-auto " id="join-meeting-btn"
 												button="[object Object]" >
 												<div
-													class="btn group relative w-full md:w-auto btn-ice btn-shadow btn-hover-glow bg-gradient-to-r from-ll to-ice text-ice ">
-													<span class="relative">Next</span><span
+													id="nxtButton" class="btn group relative w-full md:w-auto btn-ice btn-shadow btn-hover-glow bg-gradient-to-r from-ll to-ice text-ice ">
+													<span class="relative" >Next</span><span
 														class="absolute top-1/2 right-4 -translate-y-1/2 transition-all duration-200 group-hover:right-3.5 "><svg
 															width="7" height="10" viewBox="0 0 7 10" fill="none"
 															xmlns="http://www.w3.org/2000/svg">
@@ -1293,15 +1304,70 @@
 											</a></div>
                                             
                                             <script>
-                                    
-                                                document.getElementById('join-meeting-btn').addEventListener("click", function() {
-                                                    console.log("BUTTON PRESSED");
+
+                                                document.getElementById('join-meeting-btn').addEventListener("click", handler, false);
+												
+												document.addEventListener("keypress", function(event) {
+													if (event.key === "Enter") {
+														handler();
+													}
+												});
+
+												function handler(event) {
+													newUsername = document.getElementById("usernameInp").value;
+													if(newUsername == ""){
+														return;
+													}
+													const userCookie = document.cookie.split(';').find(cookie => cookie.trim().startsWith('user='));
+													if (userCookie) {
+														const userData = JSON.parse(decodeURIComponent(userCookie.split('=')[1]));
+														userData.tempname=newUsername
+														const updatedUserDataString = JSON.stringify(userData);
+														document.cookie = `user=${encodeURIComponent(updatedUserDataString)}; path=/`;
+													}
+													else{
+														const rand = ""+Math.ceil(Math.random()*1000000000)+Math.ceil(Math.random()*1000000000)
+														const userData = {
+															tempname: newUsername,
+															id: rand,
+															email: "None"
+														}
+														const userDataString = JSON.stringify(userData);
+														document.cookie = `user=${encodeURIComponent(userDataString)}; path=/`;
+													}
+                                                    console.log("NEXT PRESSED");
                                                     const input = document.getElementById("meetingID");
                                                     const inputValue = input.value;
+													if(inputValue==""){
+														return;
+													}
                                                     window.location.replace("/meeting/" + inputValue);
-                                                });
-                                                
+												}
                                             </script>
+                                            
+										
+											</a></div>
+									</div>
+
+									<div class="flex space-x-3 sm:space-x-4">
+                                        <div class="inline-block w-full md:w-auto login-form" style="padding-right: 0px;">
+
+                                            <input class=" !border-textarea" style=" height:100%; width:100%; display:block; font-size: 0.875rem" type="text" id="meetingID" placeholder="Enter an existing meeting ID or create a new meeting" required>
+                                            <!-- <input type="text" id="meetingId" placeholder="Meeting ID" required> -->
+											
+                                        </div>
+										<div><a target="" class="inline-block w-full md:w-auto " id="join-meeting-btn"
+												button="[object Object]" >
+												<div
+													id="nxtButton2" class="btn group relative w-full md:w-auto btn-ice btn-shadow btn-hover-glow bg-gradient-to-r from-ll to-ice text-ice ">
+													<span class="relative" >Next</span><span
+														class="absolute top-1/2 right-4 -translate-y-1/2 transition-all duration-200 group-hover:right-3.5 "><svg
+															width="7" height="10" viewBox="0 0 7 10" fill="none"
+															xmlns="http://www.w3.org/2000/svg">
+															<path d="M1.315 0.629998L5.68497 5L1.315 9.37"
+																stroke="currentColor" stroke-width="1.24857"></path>
+														</svg></span></div>
+											</a></div>
                                             
 										
 											</a></div>
@@ -1491,71 +1557,52 @@
 							</div>
 							<div
 								class="col-span-3 grid grid-cols-2 gap-x-8 sm:auto-cols-fr sm:grid-flow-col sm:grid-cols-none sm:gap-x-12 md:gap-x-0">
-
 								<div class="mb-10 last:mb-0 sm:mb-0 sm:space-y-14 md:pl-5 md:pr-6 space-y-10"></div>
 								<div class="mb-10 last:mb-0 sm:mb-0 sm:space-y-14 md:pl-5 md:pr-6 space-y-10">
 									<div class="footer-grid-col">
 										<h2 class="footer-col-heading">Our Team</h2>
 										<ul class="list-none space-y-3 sm:space-y-4">
+											<li class="t-footer"><a target="" aria-label="Instant Funding"
+													class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+													href="https://www.linkedin.com/in/advaith-narayanan-106994291/">Advaith Narayanan</a>
 											<li class="t-footer"><a target="" aria-label="Overview"
 													class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
 													href="https://www.linkedin.com/in/yufan-skye-wang/">Yufan Wang</a></li>
 											<li class="t-footer"><a target="" aria-label="Instant Disbursements"
 													class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
 													href="https://www.linkedin.com/in/omeed-sabouri-b27718299/">Omeed Sabouri</a></li>
-											<li class="t-footer"><a target="" aria-label="Instant Funding"
-													class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
-													href="https://www.linkedin.com/in/advaith-narayanan-106994291/">Advaith Narayanan</a>
 											</li>
-											<!---<li class="t-footer"><a target="" aria-label="Accelerated Transfers"
-													class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
-													href="https://astrafi.com/accelerated-bank-transfers/">Accelerated
-													Transfers</a></li>-->
 										</ul>
 									</div>
-									<!---<div class="footer-grid-col">
-										<h2 class="footer-col-heading">For Developers</h2>
-										<ul class="list-none space-y-3 sm:space-y-4">
-											<li class="t-footer"><a target="_blank" aria-label="Documentation"
-													class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
-													>Documentation</a>
-											</li>
-											<li class="t-footer"><a target="_blank" aria-label="Guides"
-													class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
-													href="https://docs.astra.finance/docs">Guides</a></li>
-										</ul>
-									</div>-->
 								</div>
 								<div
 									class="mb-10 last:mb-0 sm:mb-0 sm:space-y-14 md:pl-5 md:pr-6 col-span-2 grid grid-cols-2 gap-x-8 sm:col-span-1 sm:block">
 									<div class="footer-grid-col">
 										<h2 class="footer-col-heading">Contact Us on Discord</h2>
 										<ul class="list-none space-y-3 sm:space-y-4">
+											<li class="t-footer"><a target="" aria-label="Guides"
+													class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+													>advaithn</a></li>
 											<li class="t-footer"><a target="" aria-label="Customers"
 													class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
 													>axiomnxt</a></li>
 											<li class="t-footer"><a target="" aria-label="Blog"
 													class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
 													>omeedeus</a></li>
-											<li class="t-footer"><a target="" aria-label="Guides"
-													class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
-													>advaithn</a></li>
 										</ul>
 									</div>
-									<!---<div class="footer-grid-col">
-										<h2 class="footer-col-heading">Company</h2>
+								</div>
+								<div
+									class="mb-10 last:mb-0 sm:mb-0 sm:space-y-14 md:pl-5 md:pr-6 col-span-2 grid grid-cols-2 gap-x-8 sm:col-span-1 sm:block">
+									<div class="footer-grid-col">
+										<h2 class="footer-col-heading">Report a bug</h2>
 										<ul class="list-none space-y-3 sm:space-y-4">
-											<li class="t-footer"><a target="" aria-label="About"
-													class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
-													href="https://astrafi.com/about/">About</a></li>
-											<li class="t-footer"><a target="" aria-label="Careers"
-													class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
-													href="https://astrafi.com/careers/">Careers</a></li>
-											<li class="t-footer"><a target="" aria-label="Contact"
-													class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
-													href="https://astrafi.com/contact/">Contact</a></li>
+											<li class="t-footer"><a target="" aria-label="Instant Funding"
+												class="!pointer-events-auto inline-block text-white/70 transition-colors duration-200 hover:text-white"
+												href="mailto: advaith.narayanan20@gmail.com">advaith.narayanan20@gmail.com</a>
+											</li>
 										</ul>
-									</div>-->
+									</div>
 								</div>
 							</div>
 						</div>
@@ -1596,6 +1643,7 @@
 		});
 
 	</script>
+	<script src="/js/home.js"></script>
 	<noscript><img height="1" width="1" style="display:none"
 			src="https://www.facebook.com/tr?id=235777953970267&amp;ev=PageView&amp;noscript=1"></noscript><iframe
 		allow="join-ad-interest-group" data-tagging-id="G-WMV4WGKFBF" data-load-time="1713502340126" height="0"

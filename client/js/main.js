@@ -1,15 +1,11 @@
 let APP_ID = ""
 
-var socket;
-
-// import {
-//     HandLandmarker,
-//     FilesetResolver
-//   } from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0";
-
 let handLandmarker = undefined;
 let runningMode = "VIDEO";
 var timer;
+
+var nodebuffer = [];
+// var handout = 0
 
 const createHandLandmarker = async () => {
     const vision = await FilesetResolver.forVisionTasks(
@@ -28,7 +24,7 @@ const createHandLandmarker = async () => {
 };
 
 
-import('./tasks-vision/vision_bundle.mjs').then(x => {
+import('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/vision_bundle.js').then(x => {
     HandLandmarker=x.HandLandmarker;
     FilesetResolver=x.FilesetResolver;
     createHandLandmarker();
@@ -38,9 +34,7 @@ import('./tasks-vision/vision_bundle.mjs').then(x => {
     }
 )
 
-
 const client = AgoraRTC.createClient({mode:'rtc', codec:'vp8'});
-
 
 var signalingEngine = null;
 let channel;
@@ -50,7 +44,25 @@ let remoteUsers = {};
 
 var recogStopped = true
 
+
+
 let username = "";
+let unid = "";
+
+const userCookie = document.cookie.split(';').find(cookie => cookie.trim().startsWith('user='));
+
+if (userCookie) {
+    const userData = JSON.parse(decodeURIComponent(userCookie.split('=')[1]));
+    // document.getElementById('logintxt').innerText = `Welcome, ${userData.username}!`;
+    username = userData.tempname;
+    unid = userData.id+"="+userData.tempname;
+    unid = unid.replaceAll(" ", "_")
+    console.error("unid: "+unid+" username: "+username)
+}
+else{
+    username="ERROR FETCHING DATA"
+    unid="ERRORFETCHINGUNID"
+}
 
 var externalWhiteboardTrigger = false;
 
@@ -90,32 +102,11 @@ var langDict = {
 var currentlang = "en-US";
 
 
-// Pusher.logToConsole = true;
-// var pusher;
-// var pusherChan;
 
-// async function initiatePusher(){
-//     pusher = await new Pusher('290cff21990128325751', {
-//         cluster: 'us3',
-//         channelAuthorization: { endpoint: "/pusher/auth"}  
-//       });
-
-//     pusherChan = await pusher.subscribe('presence-my-channel');
-
-//     await pusherChan.bind('client-my-event', function(data) {
-//         console.error(JSON.stringify(data));
-//     });
-
-//     setInterval(function() {
-//         pusherChan.trigger('client-my-event', {channel: channel, text: 'message sent FROM CLIENT HERE'});
-//     }, 1000);
-// }
-
-// initiatePusher();
-    //         pusherChan.trigger('client-my-event', {channel: channel, text: 'message sent FROM CLIENT HERE'});
-    //     }, 1000);
+var startTime = performance.now();
 
 setInterval(function() {
+    startTime = performance.now();
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "/recog", true);
     xhr.setRequestHeader("Content-Type", "application/json");
@@ -125,28 +116,16 @@ setInterval(function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 console.log(xhr.responseText); // Print received data
+                // console.log("TIME TAKEN: "+(performance.now()-startTime))
             } else {
                 console.error('Error:', xhr.responseText);
             }
         }
     };
     
+    
     xhr.send(JSON.stringify({}));
-}, 1000);
-
-document.getElementById('join-meeting-btn').addEventListener('click', () => {
-    username = document.getElementById('username').value;
-    if(username==""){
-        return
-    }
-    // Hide the login form and show the video area
-    document.getElementById('login-form').style.display = 'none';
-    document.getElementById('stream-wrapper').style.display = 'block';
-    document.getElementById('stream-controls').style.display = 'flex';
-    document.getElementById('erase-btn').style.display = 'none';
-    document.getElementById('save-btn').style.display = 'none';
-    joinStream(meetingId); 
-});
+}, 10000);
 
 
 function startSpeechRecognition() {
@@ -225,6 +204,28 @@ async function updateCaptions(newCaptions) {
         scrollCap.scroll(0, scrollCap.scrollHeight);    
     }*/
 
+    const container = document.querySelector('.capContainer2');
+
+                // Function to scroll to the bottom
+                function scrollToBottom() {
+                    container.scrollTop = container.scrollHeight;
+                }
+
+                // Scroll to bottom initially
+                scrollToBottom();
+
+                // Add event listener to scroll event
+                container.addEventListener('scroll', () => {
+                    // If the user scrolls up, disable auto-scroll to bottom
+                    if (container.scrollTop + container.clientHeight < container.scrollHeight) {
+                        container.classList.remove('scroll-lock');
+                    } else {
+                        // If the user scrolls back down, enable auto-scroll to bottom
+                        container.classList.add('scroll-lock');
+                        scrollToBottom();
+                    }
+                });
+    
     
     for (const userId in remoteUsers) {
         try { 
@@ -236,6 +237,7 @@ async function updateCaptions(newCaptions) {
         }
     }
 }
+
 function spam() {
     for (i = 0; i < 100; i++) {
         updateCaptions("SPAM");
@@ -247,6 +249,30 @@ async function updateCaptionsCustom(newCaptions) {
 
     captionsContainer.innerHTML = captionsContainer.innerHTML + "\n\n<br>"+`\n${newCaptions}</br>`;
 
+
+    const container = document.querySelector('.capContainer2');
+
+    // Function to scroll to the bottom
+    function scrollToBottom() {
+        container.scrollTop = container.scrollHeight;
+    }
+
+    // Scroll to bottom initially
+    scrollToBottom();
+
+    // Add event listener to scroll event
+    container.addEventListener('scroll', () => {
+        // If the user scrolls up, disable auto-scroll to bottom
+        if (container.scrollTop + container.clientHeight < container.scrollHeight) {
+            container.classList.remove('scroll-lock');
+        } else {
+            // If the user scrolls back down, enable auto-scroll to bottom
+            container.classList.add('scroll-lock');
+            scrollToBottom();
+        }
+    });
+
+    
     for (const userId in remoteUsers) {
         try { 
             console.error("TRYING TO SEND MESSAGE TEXT: "+`\n${newCaptions}\n`+" TO USER: "+userId);
@@ -262,23 +288,30 @@ function updateExternalCaptions(user, caps){
     const captionsContainer = document.getElementById("captions");
     captionsContainer.innerText = captionsContainer.innerText+"\n"+caps;
 
-    if ((user == "Yufan Wang" || user == "Advaith")&& (caps == "okay" || caps == "Yufan Wang: okay")) {
-        var audioPlayer = document.getElementById("audioPlayer");
-        audioPlayer.play();
-    }
-
     captionsContainer.innerHTML = captionsContainer.innerHTML + "\n\n<br>"+`${username}: ${newCaptions}</br>\n`;
     
 
-    const scrollCaps = document.getElementsByClassName("capContainer2");
+    const container = document.querySelector('.capContainer2');
 
-    /*
-    const currentPosition = captionsContainer.scrollTop;    
-    console.error("CURRENT POSITION: "+ currentPosition);
-    
-    for (const scrollCap of scrollCaps) {        
-        scrollCap.scroll(0, scrollCap.scrollHeight);    
-    }*/
+    // Function to scroll to the bottom
+    function scrollToBottom() {
+        container.scrollTop = container.scrollHeight;
+    }
+
+    // Scroll to bottom initially
+    scrollToBottom();
+
+    // Add event listener to scroll event
+    container.addEventListener('scroll', () => {
+        // If the user scrolls up, disable auto-scroll to bottom
+        if (container.scrollTop + container.clientHeight < container.scrollHeight) {
+            container.classList.remove('scroll-lock');
+        } else {
+            // If the user scrolls back down, enable auto-scroll to bottom
+            container.classList.add('scroll-lock');
+            scrollToBottom();
+        }
+    });
 }
 
 // setInterval(() => {
@@ -291,7 +324,8 @@ let joinAndDisplayLocalStream = async (meetingId, token, rtmtoken) => {
     client.on('user-left', handleUserLeft);
     client.on('user-unpublished', handleUserUnpublished);
     console.log("joining with client...");
-    let UID = await client.join(APP_ID, meetingId, token, username); //meetingId used to be Channel ("main")  client.join(APP ID, CHANNEL_NAME, TOKEN)
+
+    let UID = await client.join(APP_ID, meetingId, token, unid); //meetingId used to be Channel ("main")  client.join(APP ID, CHANNEL_NAME, TOKEN)
     console.log("UID: "+UID);
     localTracks = await AgoraRTC.createMicrophoneAndCameraTracks();
 
@@ -319,7 +353,7 @@ let joinAndDisplayLocalStream = async (meetingId, token, rtmtoken) => {
     try{
         // await signalingEngine.login({'uid':username, 'token':token})
         // RTM TOKEN IS UNDEFINED
-        await signalingEngine.login({token: rtmtoken, uid: username});// GIVES ERROR
+        await signalingEngine.login({token: rtmtoken, uid: unid});// GIVES ERROR
     }
 
     catch(err){
@@ -344,9 +378,16 @@ let joinAndDisplayLocalStream = async (meetingId, token, rtmtoken) => {
     channel.on('ChannelMessage', ({
         text
     }, senderId) => {
+        var senderName = senderId.split("=")[1].replaceAll("_", " ");
+        console.error("Sendername: "+senderName)
+        if(text.trim() == senderName + " joined the call."){
+            var audioPlayer = document.getElementById('audioPlayer');
+            audioPlayer.play();
+        }
+
         console.error("RECEIVED MESSAGE: "+text)
-        console.error("SENDER ID: "+senderId)
-        if(text.trim() == "Whiteboard closed by "+senderId){
+        console.error("SENDER ID: "+senderName)
+        if(text.trim() == "Whiteboard closed by "+senderName){
             if(whiteboardOpen){
                 console.error("TOGGLING WHITEBOARD EXTERNALLY")
                 // toggleWhiteboard();
@@ -358,7 +399,7 @@ let joinAndDisplayLocalStream = async (meetingId, token, rtmtoken) => {
                 return
             }
         }
-        if(text.trim() == "Whiteboard opened by "+senderId){
+        if(text.trim() == "Whiteboard opened by "+senderName){
             if(!whiteboardOpen){
                 console.error("TOGGLING WHITEBOARD EXTERNALLY")
                 // toggleWhiteboard();
@@ -434,9 +475,13 @@ let joinAndDisplayLocalStream = async (meetingId, token, rtmtoken) => {
             updateExternalCaptions(senderId, text);
         }
     });
-    
+
     const captionsContainer = document.getElementById("captions");
     captionsContainer.innerText += `\n${username} joined the call.`;
+
+    
+    var audioPlayer = document.getElementById('audioPlayer');
+    audioPlayer.play();
 
     for (const userId in remoteUsers) {
         try { 
@@ -449,8 +494,8 @@ let joinAndDisplayLocalStream = async (meetingId, token, rtmtoken) => {
 }
 
 let joinStream = async () => {
-    console.log("Username: "+username);
-    const response = await fetch(`/rte/${meetingId}/publisher/uid/${username}`);  // CHANGE 0 TO ${meetingId}
+    console.log("Username: "+unid);
+    const response = await fetch(`/rte/${meetingId}/publisher/uid/${unid}`);  // CHANGE 0 TO ${meetingId}
     const data = await response.json();
     const token = data.rtcToken;
     const rtmtoken = data.rtmToken;
@@ -465,16 +510,16 @@ let handleUserJoined = async (user, mediaType) => {
     remoteUsers[user.uid] = user;
     // updateCaptions(`USER JOINED ${mediaType}`);
     await client.subscribe(user, mediaType);
-
+    var newName = user.uid.split("=")[1].replaceAll("_", " ");
     if (mediaType === 'video'){
         let player = document.getElementById(`user-container-${user.uid}`);
         if (player != null){
             player.remove();
         }
-
+        
         player = `<div class="video-container" id="user-container-${user.uid}">
                         <div class="video-player" id="user-${user.uid}">
-                            <div class="user-uid">Username: ${user.uid}</div> 
+                            <div class="user-uid">Username: ${newName}</div> 
                         </div> 
                  </div>`
 
@@ -490,10 +535,15 @@ let handleUserJoined = async (user, mediaType) => {
 
 let handleUserLeft = async (user) => {
     delete remoteUsers[user.uid]
+    
     document.getElementById(`user-container-${user.uid}`).remove()
+
+    var audioPlayer = document.getElementById('audioPlayerLeave');
+    audioPlayer.play();
 }
 
 let handleUserUnpublished = async (user, mediaType) => {
+
     if(mediaType == 'audio'){
         return
     }
@@ -543,11 +593,11 @@ let leaveAndRemoveLocalStream = async () => {
     remoteUsers = []
 
     // document.getElementById('join-btn').style.display = 'block'
-    document.getElementById('stream-controls').style.display = 'none'
-    document.getElementById('video-streams').innerHTML = ''
+    // document.getElementById('stream-controls').style.display = 'none'
+    // document.getElementById('video-streams').innerHTML = ''
 
-    document.getElementById('login-form').style.display = 'block';
-    document.getElementById('stream-wrapper').style.display = 'none';
+    // document.getElementById('stream-wrapper').style.display = 'none';
+    window.location.href = "/";
 }
 
 let toggleMic = async (e) => {
@@ -610,12 +660,12 @@ let toggleScreenShare = async (e) => {
         // chrome
         client.unpublish(localTracks2);
 
-        document.getElementById(`user-container-${username}`).remove();
+        document.getElementById(`user-container-${unid}`).remove();
 
         document.getElementById('camera-btn').style.display = 'block';
         
-        let player = `<div class="video-container" id="user-container-${username}">
-                        <div class="video-player" id="user-${username}">
+        let player = `<div class="video-container" id="user-container-${unid}">
+                        <div class="video-player" id="user-${unid}">
                             <div class="user-uid">Username: ${username} (You)</div> 
                         </div>
                   </div>`
@@ -624,7 +674,7 @@ let toggleScreenShare = async (e) => {
         // for(let i = 0; localTracks.length > i; i++){
         //     localTracks[i].play(`user-${username}`)
         // }
-        localTracks[1].play(`user-${username}`)
+        localTracks[1].play(`user-${unid}`)
         // localTracks[1].play(`user-${UID}`)
         // localTracks[0].play(`user-${UID}`)
 
@@ -659,12 +709,12 @@ let toggleScreenShare = async (e) => {
         //     localTracks[i].close()
         // }
 
-        document.getElementById(`user-container-${username}`).remove();
+        document.getElementById(`user-container-${unid}`).remove();
 
         document.getElementById('camera-btn').style.display = 'none';
 
-        let player = `<div class="video-container" id="user-container-${username}">
-            <div class="video-player" id="user-${username}">
+        let player = `<div class="video-container" id="user-container-${unid}">
+            <div class="video-player" id="user-${unid}">
                 <div class="user-uid">Username: ${username} (You)</div> 
             </div>
         </div>`
@@ -673,7 +723,7 @@ let toggleScreenShare = async (e) => {
         // for(let i = 0; localTracks.length > i; i++){
         //     localTracks[i].play(`user-${username}`)
         // }
-        localTracks[1].play(`user-${username}`)
+        localTracks[1].play(`user-${unid}`)
 
         // localTracks[1].play(`user-${UID}`)
         // localTracks[0].play(`user-${UID}`)
@@ -773,7 +823,7 @@ function renderCanvas() {
 
 // Allow for animation
 (function drawLoop() {
-    requestAnimFrame(drawLoop);
+    window.requestAnimFrame(drawLoop);
     renderCanvas();
 })();
 
@@ -984,9 +1034,7 @@ let saveWhiteboard = async (e) => {
 
 
 function drawConnectors(recogCtx, landmarks, options){
-
-    
-    console.error("DRAWING CONNECTORS in DRAWCONNECTORS")
+    // console.error("DRAWING CONNECTORS in DRAWCONNECTORS")
     var fro = landmarks[0];
     // console.error(fro)
     for(var i = 1; i<=4; i++){ // Drawing thumb
@@ -1099,16 +1147,28 @@ async function predictWebcam() {
     recogCtx.save();
     recogCtx.clearRect(0, 0, canvasRecog.width, canvasRecog.height);
     if (results.landmarks) {
+        if(results.landmarks[0]!=null){
+            for (var i = 0; i < results.landmarks[0].length; i ++) {
+                node = {'x': -results.landmarks[0][i]['x'], 'y':results.landmarks[0][i]['y']};
+                
+            }
+            nodebuffer.push(results.landmarks[0]);
+            
+            console.error("PUTTING thingies")
+        }
         for (const landmarks of results.landmarks) { // Each landmarks is a hand
             // console.error("LANDMARKS FOUND")
             drawConnectors(recogCtx, landmarks, {
             color: "#00FF00",
             lineWidth: 2
         });
-        drawLandmarks(recogCtx, landmarks, {color: "#FF0000", lineWidth: 2});
+        // drawLandmarks(recogCtx, landmarks, {color: "#FF0000", lineWidth: 2});
         }
     } else{
         console.error("NO LANDMARKS FOUND")
+    }
+    if(nodebuffer.length>20){
+        sendPredictionDat()
     }
     // recogCtx.restore();
     // window.requestAnimationFrame(predictWebcam);
@@ -1116,7 +1176,36 @@ async function predictWebcam() {
 
 var intervalPredict = setInterval(function () { 
     predictWebcam(); 
-}, 10);
+}, 70);
+
+async function sendPredictionDat(){
+    startTime = performance.now();
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "/recog", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("dat", "hello world");
+    
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                console.log(xhr.responseText); // Print received data
+                if(xhr.responseText!=" default"){
+                    updateCaptions("[ASL]" + xhr.responseText);
+                }
+                // updateCaptions("[ASL]" + xhr.responseText.stringify().substring(responseText.toString().indexOf('[')+1, responseText.toString().indexOf(']')));
+                // console.log("TIME TAKEN: "+(performance.now()-startTime))
+            } else {
+                console.error('Error:', xhr.responseText);
+            }
+        }
+    };
+
+    console.error("SENT PRED DATA with unid: "+unid)
+    xhr.send(JSON.stringify({array: nodebuffer, uid: unid}));
+    endTime = performance.now();
+    console.log("TIME TAKEN: "+(endTime-startTime))
+    nodebuffer.length=0
+}
 
 // document.getElementById('join-btn').addEventListener('click', joinStream)
 document.getElementById('leave-btn').addEventListener('click', leaveAndRemoveLocalStream)
@@ -1126,3 +1215,5 @@ document.getElementById('screenshare-btn').addEventListener('click', toggleScree
 document.getElementById('whiteboard-btn').addEventListener('click', toggleWhiteboard)
 document.getElementById('erase-btn').addEventListener('click', toggleErase)
 document.getElementById('save-btn').addEventListener('click', saveWhiteboard)
+
+joinStream(meetingId)

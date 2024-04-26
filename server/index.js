@@ -3,6 +3,12 @@ const path = require('path');
 const dotenv = require('dotenv'); 
 dotenv.config();
 
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const session = require('express-session');
+
+const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 
 const APP_ID = process.env.APP_ID;
 const APP_CERTIFICATE = process.env.APP_CERTIFICATE;
@@ -10,18 +16,63 @@ const APP_CERTIFICATE = process.env.APP_CERTIFICATE;
 console.log(APP_ID, APP_CERTIFICATE)
 const app = express();
 
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+
+passport.deserializeUser((user, done) => {
+  done(null, user);
+});
+
+app.use(session({
+  secret: GOOGLE_CLIENT_SECRET, // <-- Add a secret key here
+  resave: false,
+  saveUninitialized: true // Ensure session is saved even if it's uninitialized
+}));
+
 const publicPath = path.join(__dirname, '..', 'client');
 app.use(express.static(publicPath, { index: 'index.html' }));
+
+// Configure Google Strategy
+
+passport.use(new GoogleStrategy({
+  clientID: GOOGLE_CLIENT_ID,
+  clientSecret: GOOGLE_CLIENT_SECRET,
+  callbackURL: 'https://meets.pantheonlabs.org/auth/google/callback'
+}, (accessToken, refreshToken, profile, done) => {
+  // You can customize what to do with the profile data here.
+  return done(null, profile);
+}));
+
+app.get('/auth/google', 
+    passport.authenticate('google', { scope: ['profile', 'email']})
+);
+
+app.get('/auth/google/callback',
+    passport.authenticate('google', { failureRedirect: '/' }),
+    (req, res) => {
+      const user = {
+        id: req.user.id,
+        username: req.user.displayName,
+        email: req.user.emails[0].value,
+        tempname:  req.user.displayName,
+      };
+    res.cookie('user', JSON.stringify(user)); // Save user data in a cookie
+    res.redirect('/');
+
+      // res.json(user);
+
+    }
+);
 
 app.get('/meeting/:param', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'client', 'meeting.html'));
 })
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'client', 'templ.html'));
+  res.sendFile(path.join(__dirname, '..', 'client', 'index.html'));
 })
 
-const PORT = process.env.PORT || 3002;
 
 
 const cors = require('cors');
@@ -156,9 +207,6 @@ const generateRTEToken = (req, resp) => {
   return resp.json({ 'rtcToken': rtcToken, 'rtmToken': rtmToken, 'appid': APP_ID });
 }
 
-const rootDirectory = '../client'; // Change this to your root directory
-
-
 app.options('*', cors());
 app.get('/ping', nocache, ping)
 app.get('/rtc/:channel/:role/:tokentype/:uid', nocache , generateRTCToken);
@@ -176,7 +224,7 @@ app.get('*', function(req, res){
 //   // console.log('WebSocket connection established');
 
 //   ws.on('message', function incoming(message) {
-//       // console.log('Received video data:', message);
+//      // console.log('Received video data:', message);
 //       // MESSAGE IS BASE 64 ENCODED JPEG
 //       message = message.toString();
       
