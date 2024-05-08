@@ -495,7 +495,20 @@ let joinAndDisplayLocalStream = async (meetingId, token, rtmtoken) => {
 
 let joinStream = async () => {
     console.log("Username: "+unid);
-    const response = await fetch(`/rte/${meetingId}/publisher/uid/${unid}`);  // CHANGE 0 TO ${meetingId}
+    var response;
+    while(true){
+        pass = prompt("Enter the password for the meeting: ");
+        response = await fetch(`/rte/${meetingId}/publisher/uid/${unid}/${pass}`);  // CHANGE 0 TO ${meetingId}
+        if(response.status == 401){
+            alert("Incorrect password. Please try again.");
+        }
+        else if(response.status==404){
+            alert("Channel doesn't exist. Please log in to create one.")
+        }
+        else{
+            break
+        }
+    }
     const data = await response.json();
     const token = data.rtcToken;
     const rtmtoken = data.rtmToken;
@@ -1013,7 +1026,7 @@ function sendWhiteboard () {
 var interval = setInterval(function () { 
     sendWhiteboard(); 
     // console.error("UPDATING WHITEBOARD IN SET INTERVAL")
-}, 1);
+}, 10);
 
 
 
@@ -1181,7 +1194,7 @@ var intervalPredict = setInterval(function () {
 async function sendPredictionDat(){
     startTime = performance.now();
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "/recog", true);
+    xhr.open("POST", "https://pantheon-flask.fly.dev/recog", true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("dat", "hello world");
     

@@ -3,6 +3,6 @@
     "@mediapipe/tasks-vision": "^0.10.12",
     "agora-rtm-sdk": "^1.5.1",
     "gsap": "^3.12.5",
-    "three": "^0.163.0"
+    "three": "^0.164.1"
   }
 }

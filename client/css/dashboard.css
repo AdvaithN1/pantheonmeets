@@ -1,0 +1,56 @@
+/* FONTS */
+
+@font-face {
+    font-family: "URW Jay Gothic W01 Light";
+    src: url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.eot");
+    src: url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/8ef91f267dfca5b6ea388ec6dcdd9527.svg#URW Jay Gothic W01 Light")format("svg");
+  }
+  
+  @font-face {
+    font-family: "Monte Stella Trial Light";
+    src: url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.eot");
+    src: url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/21ae87f65567bda43d77c68ae7478930.svg#Monte Stella Trial Light")format("svg");
+  }
+  
+  @font-face {
+    font-family: "FSP DEMO - Bebas Neue Pro Light";
+    src: url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.eot");
+    src: url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/5fd03961d9ff00b65b9b446fe2034712.svg#FSP DEMO - Bebas Neue Pro Light")format("svg");
+  }
+  @font-face {
+    font-family: "DINOT-Regular";
+    src: url("https://db.onlinewebfonts.com/t/1c587cd97662ab09cb8ba96867f212e7.eot");
+    src: url("https://db.onlinewebfonts.com/t/1c587cd97662ab09cb8ba96867f212e7.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/1c587cd97662ab09cb8ba96867f212e7.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/1c587cd97662ab09cb8ba96867f212e7.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/1c587cd97662ab09cb8ba96867f212e7.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/1c587cd97662ab09cb8ba96867f212e7.svg#DINOT-Regular")format("svg");
+}
+@font-face {
+    font-family: "DINOT-Bold";
+    src: url("https://db.onlinewebfonts.com/t/feab4f015f183ad38338781e0369490d.eot");
+    src: url("https://db.onlinewebfonts.com/t/feab4f015f183ad38338781e0369490d.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/feab4f015f183ad38338781e0369490d.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/feab4f015f183ad38338781e0369490d.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/feab4f015f183ad38338781e0369490d.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/feab4f015f183ad38338781e0369490d.svg#DINOT-Bold")format("svg");
+}
+
+/*     */
+
+body{
+    background:#a6def4;
+    background: linear-gradient(to right, #d3e8f0, #eafaff);
+}
